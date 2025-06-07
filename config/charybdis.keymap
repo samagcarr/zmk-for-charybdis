@@ -33,8 +33,6 @@
                                    &kp LA(LG(LCTRL))  &kp LCTRL     &lt 1 SPACE     &lt 2 ENTER  &kp BACKSPACE
                                                       &kp LEFT_ALT  &kp LEFT_WIN    &kp DELETE
             >;
-
-            trackball-bindings = <&tmv_coarse>;
         };
 
         layer_1 {
