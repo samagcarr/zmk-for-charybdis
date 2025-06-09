@@ -25,46 +25,38 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
 
         BASE {
             bindings = <
-&kp GRAVE   &kp N1       &kp N2         &kp N3      &kp N4        &kp N5   &kp N6            &kp N7        &kp N8      &kp N9           &kp N0          &kp MINUS
-&kp TAB     &kp Q        &kp W          &kp E       &kp R         &kp T               &kp Y  &kp U         &kp I       &kp O            &kp P           &kp EQUAL
-&kp ESC     &mt LCTRL A  &mt LALT S     &mt LGUI D  &mt LSHIFT F  &kp G               &kp H  &mt RSHIFT J  &mt RGUI K  &mt RALT L       &mt RCTRL SEMI  &kp APOS
-&kp LSHIFT  &lt 3 Z      &kp X          &kp C       &kp V         &kp B               &kp N  &kp M         &kp COMMA   &kp DOT          &lt 3 SLASH     &kp RSHIFT
-            &lt 1 TAB    &kp BACKSPACE  &kp LGUI    &kp SPACE     &kp DEL  &kp ENTER         &kp SPACE                 &lt 2 BACKSPACE
+&mt GRAVE ESCAPE  &kp N1       &kp N2            &kp N3      &kp N4        &kp N5        &kp N6                    &kp N7        &kp N8      &kp N9           &kp N0          &kp MINUS
+&kp TAB           &kp Q        &kp W             &kp E       &kp R         &kp T                            &kp Y  &kp U         &kp I       &kp O            &kp P           &kp EQUAL
+&caps_word        &mt LCTRL A  &mt LALT S        &mt LGUI D  &mt LSHIFT F  &kp G                            &kp H  &mt RSHIFT J  &mt RGUI K  &mt RALT L       &mt RCTRL SEMI  &kp APOS
+&kp BACKSPACE     &lt 3 Z      &kp X             &kp C       &kp V         &kp B                            &kp N  &kp M         &kp COMMA   &kp DOT          &lt 3 SLASH     &kp DELETE
+                  &lt 1 TAB    &kp LEFT_CONTROL  &kp LGUI    &kp SPACE     &kp LEFT_ALT  &kp RIGHT_CONTROL         &kp ENTER                 &lt 2 BACKSPACE
             >;
         };
 
         NAV {
             bindings = <
-&kp F12          &kp F1          &kp F2           &kp F3             &kp F4           &kp F5    &kp F6                &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
-&trans           &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp UP             &kp EQUAL        &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&kp PRINTSCREEN  &kp INSERT      &kp LEFT         &kp DOWN           &kp RIGHT        &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
-&trans           &kp DEL         &kp PG_UP        &kp CAPS           &kp PG_DN        &kp LPAR              &kp RPAR  &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &trans
-                 &trans          &trans           &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans    &kp KP_DOT            &kp N0          &mo 3
+&kp F12          &kp F1          &kp F2           &kp F3    &kp F4     &kp F5    &kp F6                &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
+&trans           &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp UP    &kp EQUAL  &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
+&kp PRINTSCREEN  &kp INSERT      &kp LEFT         &kp DOWN  &kp RIGHT  &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
+&trans           &kp DEL         &kp PG_UP        &kp CAPS  &kp PG_DN  &kp LPAR              &kp RPAR  &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &trans
+                 &trans          &trans           &trans    &trans     &trans    &kp KP_DOT            &kp N0          &mo 3
             >;
         };
 
         SYM {
             bindings = <
-&kp F12  &kp F1         &kp F2     &kp F3             &kp F4            &kp F5         &kp F6                         &kp F7            &kp F8     &kp F9        &kp F10        &kp F11
-&trans   &kp EXCL       &kp AT     &kp HASH           &kp DLLR          &kp PRCNT                          &kp CARET  &kp AMPS          &kp STAR   &kp QUESTION  &kp SQT        &trans
-&trans   &kp PLUS       &kp EQUAL  &kp LPAR           &kp RPAR          &kp DQT                            &kp COLON  &kp LBKT          &kp RBKT   &kp LBRC      &kp RBRC       &trans
-&trans   &kp LESS_THAN  &kp PIPE   &kp MINUS          &kp GREATER_THAN  &kp BACKSLASH                      &kp GRAVE  &kp UNDERSCORE    &kp SLASH  &kp TILDE     &kp SEMICOLON  &trans
-         &mo 3          &trans     &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &trans         &kt C_FAST_FORWARD             &kp C_PLAY_PAUSE             &trans
+&kp F12  &kp F1         &kp F2     &kp F3     &kp F4            &kp F5         &kp F6             &kp F7          &kp F8     &kp F9        &kp F10        &kp F11
+&trans   &kp EXCL       &kp AT     &kp HASH   &kp DLLR          &kp PRCNT              &kp CARET  &kp AMPS        &kp STAR   &kp QUESTION  &kp SQT        &trans
+&trans   &kp PLUS       &kp EQUAL  &kp LPAR   &kp RPAR          &kp DQT                &kp COLON  &kp LBKT        &kp RBKT   &kp LBRC      &kp RBRC       &trans
+&trans   &kp LESS_THAN  &kp PIPE   &kp MINUS  &kp GREATER_THAN  &kp BACKSLASH          &kp GRAVE  &kp UNDERSCORE  &kp SLASH  &kp TILDE     &kp SEMICOLON  &trans
+         &mo 3          &trans     &trans     &trans            &trans         &trans             &trans                     &trans
             >;
         };
 
