@@ -6,6 +6,11 @@
       zmk,matrix_transform = &default_transform;
     }; 
 
+    trackball_listener: glidepoint_listener {
+        compatible = "zmk,input-listener";
+        status = "disabled";
+    };
+
     vbatt: vbatt {
 	    compatible = "zmk,battery-nrf-vddh";
     };
