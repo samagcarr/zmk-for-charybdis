@@ -8,6 +8,7 @@
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
+};
 
 &mt {
     quick-tap-ms = <100>;
