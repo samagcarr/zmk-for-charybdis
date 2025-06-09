@@ -59,11 +59,6 @@
         /* keep the sensor awake while ZMK activity state is ACTIVE,
            fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
            thus, the sensor would be a `wakeup-source` */
-
-        /*   optional features from inorichi driver */
-        /* snipe-layers = <4>; */
-        /* scroll-layers = <5>; */
-        /* automouse-layer = <4>; */
     };
 };
 

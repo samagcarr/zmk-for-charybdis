@@ -24,7 +24,11 @@
     tapping-term-ms = <170>;
 };
 
- /* input config for mouse move mode */
+
+/ {
+    combos { compatible = "zmk,combos"; };
+
+     /* input config for mouse move mode */
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
@@ -75,9 +79,6 @@
         #binding-cells = <1>;
         time-to-live-ms = <750>;
     };
-
-/ {
-    combos { compatible = "zmk,combos"; };
 
     keymap {
         compatible = "zmk,keymap";
