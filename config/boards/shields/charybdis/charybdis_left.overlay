@@ -30,6 +30,8 @@
     };
 };
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
 &spi0 {
     status = "disabled";
     compatible = "nordic,nrf-spim";
