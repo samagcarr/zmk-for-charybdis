@@ -24,7 +24,6 @@
     tapping-term-ms = <170>;
 };
 
-/ {
       /* input config for mouse move mode */
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
@@ -77,6 +76,7 @@
         time-to-live-ms = <750>;
     };
 
+/ {
 
     combos { compatible = "zmk,combos"; };
 
