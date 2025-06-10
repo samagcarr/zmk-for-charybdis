@@ -36,27 +36,29 @@
     tapping-term-ms = <170>;
 };
 
-
-/ {
-    combos { compatible = "zmk,combos"; };
-
-     /* input config for mouse move mode -- WORKS */
-    tb0_mmv_ibl {
-        compatible = "zmk,input-behavior-listener";
-        device = <&trackball>;
-        layers = <BAS ADJ SCROLL>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <1>;
-        bindings = <&ib_toggle_layer ADJ>; // activate mouse keys when moving
-
+   &trackball_listener {
         scroller {
             layers = <SCROLL>;
             input-processors = <&zip_xy_to_scroll_mapper>;
         };
     };
+
+
+/ {
+    combos { compatible = "zmk,combos"; };
+
+     /* input config for mouse move mode -- WORKS */
+    // tb0_mmv_ibl {
+    //    compatible = "zmk,input-behavior-listener";
+    //    device = <&trackball>;
+    //    layers = <BAS ADJ SCROLL>;
+    //  evt-type = <INPUT_EV_REL>;
+    //    x-input-code = <INPUT_REL_X>;
+    //    y-input-code = <INPUT_REL_Y>;
+    //    scale-multiplier = <1>;
+    //    scale-divisor = <1>;
+    //    bindings = <&ib_toggle_layer ADJ>; // activate mouse keys when moving
+    //};
 
     /* input config for snipe mode */
     //tb0_mnl_ibl {
