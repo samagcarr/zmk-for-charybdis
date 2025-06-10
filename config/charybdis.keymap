@@ -7,11 +7,11 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BAS 0 // mouse key layer
-#define NAV 1 // mouse key layer
-#define SYM 2 // mouse key layer
+#define NAV 1
+#define SYM 2
 #define ADJ 3 // mouse key layer
 #define SNIP 4 // mouse key layer
-#define SCROLL 5
+#define SCROLL 5 // mouse key layer
 
 #define INPUT_EV_REL 0x02
 #define INPUT_REL_X 0x00
