@@ -49,7 +49,7 @@
         y-input-code = <INPUT_REL_Y>;
         scale-multiplier = <4>;
         scale-divisor = <5>;
-        // bindings = <&ib_toggle_layer 3>;
+        bindings = <&ib_toggle_layer ADJ>; // activate mouse keys when moving
     };
 
     /* input config for snipe mode */
