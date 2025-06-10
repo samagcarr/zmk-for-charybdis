@@ -27,18 +27,18 @@
     tapping-term-ms = <170>;
 };
 
-&trackball_listener {
-    compatible = "zmk,input_listener";
-    input-processors = <&zip_xy_scaler 3 2>, <&zip_temp_layer 3 1000>;
-    scroller {
-        layers = <5>;
-        input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, <&zip_xy_to_scroll_mapper>;
-    };
-};
-
 
 / {
     combos { compatible = "zmk,combos"; };
+
+    trackball_listener {
+        compatible = "zmk,input_listener";
+        input-processors = <&zip_xy_scaler 3 2>, <&zip_temp_layer 3 1000>;
+        scroller {
+            layers = <5>;
+            input-processors = <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>, <&zip_xy_to_scroll_mapper>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
