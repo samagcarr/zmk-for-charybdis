@@ -58,4 +58,8 @@
   trackball_listener_l {
     status = "okay";
   };
+
+  trackball_listener_r {
+    status = "okay";
+  }
 };
