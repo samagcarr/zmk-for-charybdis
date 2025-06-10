@@ -32,20 +32,20 @@
     trackball_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
-        layers = <0 3 4 5>;
+        layers = <BASE ADJ SNIP SCROLL>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         scale-multiplier = <4>;
         scale-divisor = <5>;
-        // bindings = <&ib_toggle_layer 7>;
+        // bindings = <&ib_toggle_layer 3>;
     };
 
     /* input config for snipe mode */
     trackball_snipe_listener {
         compatible = "zmk,input-behavior-listener";   
         device = <&trackball>;
-        layers = <4>;
+        layers = <SNIP>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -57,7 +57,7 @@
     trackball_scroll_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
-        layers = <5>;
+        layers = <SCROLL>;
         evt-type = <INPUT_EV_REL>;            
         x-input-code = <INPUT_REL_MISC>;
         y-input-code = <INPUT_REL_WHEEL>;
