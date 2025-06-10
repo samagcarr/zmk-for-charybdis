@@ -63,7 +63,7 @@
 };
 
 / {
-  trackball_listener {
+  trackball_listener_r {
     compatible = "zmk,input-listener";
     device = <&trackball>;
   };
