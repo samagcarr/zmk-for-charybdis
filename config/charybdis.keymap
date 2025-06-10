@@ -43,7 +43,7 @@
     tb0_mmv_ibl {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
-        layers = <BAS ADJ SNIP SCROLL>;
+        layers = <BAS ADJ SCROLL>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
