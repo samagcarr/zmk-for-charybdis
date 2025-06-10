@@ -40,7 +40,7 @@
     combos { compatible = "zmk,combos"; };
 
      /* input config for mouse move mode */
-    trackball_listener {
+    tb0_mmv_ibl {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
         layers = <BAS ADJ SNIP SCROLL>;
@@ -53,7 +53,7 @@
     };
 
     /* input config for snipe mode */
-    trackball_snipe_listener {
+    tb0_mnl_ibl {
         compatible = "zmk,input-behavior-listener";   
         device = <&trackball>;
         layers = <SNIP>;
@@ -65,7 +65,7 @@
     };
 
     /* input config for mouse scroll mode */
-    trackball_scroll_listener {
+    tb0_msl_ibl {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
         layers = <SCROLL>;
