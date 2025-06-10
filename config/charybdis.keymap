@@ -14,8 +14,8 @@
 #define SCROLL 5 // mouse key layer
 
 #define INPUT_EV_REL 0x02
-#define INPUT_REL_X 0x00
-#define INPUT_REL_Y 0x01
+//#define INPUT_REL_X 0x00
+//#define INPUT_REL_Y 0x01
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
@@ -39,7 +39,7 @@
 / {
     combos { compatible = "zmk,combos"; };
 
-     /* input config for mouse move mode */
+     /* input config for mouse move mode -- WORKS */
     tb0_mmv_ibl {
         compatible = "zmk,input-behavior-listener";
         device = <&trackball>;
