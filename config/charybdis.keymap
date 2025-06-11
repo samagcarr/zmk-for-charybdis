@@ -27,6 +27,8 @@
     tapping-term-ms = <170>;
 };
 
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
+
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast.
 
 &trackball_listener {
