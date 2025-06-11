@@ -102,7 +102,7 @@
 &trans   &trans  &trans          &trans            &trans             &trans                   &trans    &trans    &trans    &trans    &trans    &trans
 &trans   &trans  &kp C_PREVIOUS  &kp C_PLAY_PAUSE  &kp C_NEXT         &kp C_MUTE               &mkp MB4  &mkp MB1  &mkp MB2  &mkp MB3  &mkp MB5  &trans
 &trans   &trans  &tog 5          &mo 4             &kp C_VOLUME_DOWN  &kp C_VOLUME_UP          &trans    &trans    &mo 4     &mo 5     &trans    &trans
-         &trans  &trans          &trans            &trans             &trans           &trans            &trans              &trans
+         &trans  &mkp MB3        &trans            &mkp MB2           &mkp MB1         &trans            &trans              &trans
             >;
         };
 
@@ -111,7 +111,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5   &trans  &trans  &trans          &trans  &trans    &trans    &mo 5     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
             >;
         };
