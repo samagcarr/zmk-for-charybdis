@@ -28,6 +28,7 @@
 };
 
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast.
+
 &trackball_listener {
     input-processors = <&zip_xy_scaler 1 1>, <&zip_temp_layer 3 500>;
 
@@ -67,7 +68,7 @@
 &trans           &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp UP    &kp EQUAL  &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
 &kp PRINTSCREEN  &kp INSERT      &kp LEFT         &kp DOWN  &kp RIGHT  &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
 &trans           &kp DEL         &kp PG_UP        &kp CAPS  &kp PG_DN  &kp LPAR              &kp RPAR  &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &trans
-                 &trans          &trans           &trans    &trans     &trans    &kp KP_DOT            &kp N0          &mo 3
+                 &trans          &trans           &trans    &trans     &trans    &kp KP_DOT            &kp N0          &trans
             >;
         };
 
@@ -77,7 +78,7 @@
 &trans   &kp EXCL       &kp AT     &kp HASH   &kp DLLR          &kp PRCNT              &kp CARET  &kp AMPS        &kp STAR   &kp QUESTION  &kp SQT        &trans
 &trans   &kp PLUS       &kp EQUAL  &kp LPAR   &kp RPAR          &kp DQT                &kp COLON  &kp LBKT        &kp RBKT   &kp LBRC      &kp RBRC       &trans
 &trans   &kp LESS_THAN  &kp PIPE   &kp MINUS  &kp GREATER_THAN  &kp BACKSLASH          &kp GRAVE  &kp UNDERSCORE  &kp SLASH  &kp TILDE     &kp SEMICOLON  &trans
-         &mo 3          &trans     &trans     &trans            &trans         &trans             &trans                     &trans
+         &trans         &trans     &trans     &trans            &trans         &trans             &trans                     &trans
             >;
         };
 
@@ -119,6 +120,15 @@
 &trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
         &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
             >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        thumbsToMou {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
