@@ -47,12 +47,13 @@
         <&zip_temp_layer 3 500>;
 
     sniper {
-        layers = <4>;
-        input-processors = <&zip_xy_scaler 1 4>;
+        layers = <4 6>;
+        input-processors = <&zip_xy_scaler 1 5>;
+        process-next;
     };
 
     scroller {
-        layers = <5>;
+        layers = <5 8>;
         input-processors = <&zip_xy_to_scroll_mapper>;
     };
 };
