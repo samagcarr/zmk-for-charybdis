@@ -41,8 +41,8 @@
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast. 1 seems fine?
 
 &trackball_listener {
-    input-processors = 
-        <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>, 
+    input-processors =
+        <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
         <&zip_xy_scaler 1 1>,
         <&zip_temp_layer 3 500>;
 
@@ -131,6 +131,25 @@
 &trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
         &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
             >;
+        };
+
+        SNSC {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        SnipeScroll {
+            if-layers = <4 5>;
+            then-layer = <7>;
         };
     };
 };
