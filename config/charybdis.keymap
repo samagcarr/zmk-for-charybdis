@@ -122,11 +122,11 @@
 
         ADJ {
             bindings = <
-&trans  &trans  &trans    &trans  &trans    &trans    &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans  &trans    &trans            &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans  &trans    &trans            &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5     &mo 4   &trans    &trans            &trans  &trans    &mo 4     &mo 5     &trans  &trans
-        &trans  &mkp MB3  &trans  &mkp MB2  &mkp MB1  &trans          &trans              &trans
+&trans  &trans  &trans    &trans    &trans  &trans    &trans          &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans    &trans    &trans  &trans            &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans    &trans    &trans  &trans            &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &mo 5     &mo 4     &trans  &trans            &trans  &trans    &mo 4     &mo 5     &trans  &trans
+        &trans  &mkp MB3  &mkp MB2  &trans  &mkp MB1  &trans          &trans              &trans
             >;
         };
 
