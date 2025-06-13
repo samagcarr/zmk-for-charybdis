@@ -1,0 +1,91 @@
+# Created 2025-06-13 Fri 13:23
+#+title: Keyboard
+#+date: 2024-12-01 2024-10-31 2024-07-24 2023-10-25 2024-11-25 2023-07-08 2024-08-19 2024-08-18 2023-07-09 {{date}} 2024-10-27 2025-02-03 2025-01-11 2023-07-26 2024-07-25 2024-10-30 2023-10-24 2025-01-06 2024-06-26 2024-09-23 2024-02-11 2024-07-27 2023-12-18 2024-07-08 2024-03-12 2023-10-09 2023-12-20 2025-01-13 2024-07-30 2023-08-21 2024-09-19 2025-01-12 2024-11-08 2024-02-07 2023-08-20 2024-07-31 2023-12-21 2024-07-09 2024-09-20 2024-06-25 2023-10-08 2024-03-13 2023-12-19 2024-07-26 2024-01-02 2024-02-10 2024-11-23 2023-09-27 2024-06-19 2025-01-16 2024-07-22 2024-08-08 2024-12-26 2023-07-19 2024-10-18 2024-12-27 2024-10-19 2024-07-23 2024-12-08 2024-08-31 2025-01-17 2023-09-09 2023-07-20 2023-12-24 2025-01-15 2023-12-09 2024-10-23 2024-01-12 2023-06-21 2024-09-30 2024-11-20 2023-10-18 2025-02-28 2023-12-31 2024-12-25 2024-08-24 2025-01-02 2024-11-18 2023-10-20 2023-10-21 2024-11-19 2025-01-03 2023-06-18 2024-01-04 2024-09-26 2024-06-23 2023-12-27 2024-07-18 2023-10-19 2024-11-21 2025-01-14 2023-12-16 2024-06-05 2023-10-28 2024-05-17 2023-07-12 2023-10-07 2024-11-28 2023-07-05 2023-10-10 2024-07-11 2023-06-29 2024-09-17 2024-11-07 2023-11-12 2024-11-06 2024-12-14 2023-10-10 2023-10-11 2023-07-04 2023-06-28 2024-07-10 2023-10-07 2024-08-02 2025-01-24 2023-10-06 2024-07-15 2025-01-20 2024-07-04 2024-08-01 2024-06-28 2023-10-05 2024-09-28 2023-08-10 2024-08-13 2024-10-03 2024-08-06 2023-08-13 2024-07-02 2024-08-07 2025-01-21 2024-12-29 2023-10-03 2024-08-28 2024-06-01 2024-11-14 2024-09-04 2024-11-03 2024-09-11 2023-12-07 2024-12-13 2023-10-04 2024-06-29 2024-11-13 2023-12-15 2023-11-07 2024-09-03 2024-12-16 2024-10-28 2024-07-12 2024-08-17 2023-10-13 2023-08-02 2023-10-12 2024-08-16 2023-12-17 2023-09-15 2024-07-03 2024-01-31 2025-03-08 2023-10-14 2024-07-16 2023-05-13 2024-09-10 2023-08-28 2024-10-01 2023-10-15 2025-01-18 2023-11-16 2024-11-15 2024-12-07 2020-02-28 2024-10-29 2023-12-14 2025-01-19 2023-08-06 2024-07-17 2024-10-02 2025-01-23 2024-10-15 2023-06-17 2024-02-19 2024-11-16 2024-09-07 2023-11-03 2023-09-13 2024-06-28 2024-06-02
+#+author: [[file:Genesis P-Orridge][Genesis P-Orridge]]; [[file:Merzbow]] [[file:Hiron Ennes][Hiron Ennes]] [[file:K. W. Jeter][K. W. Jeter]]
+* TODO [4/11] To do/ideas
+- [ ] play with different modifier locations; not sure which work best with emacs
+  - Home row mods allow for other things on thumb keys
+  - Ctrl-Alt-Win-Shift: Hyper; use for window movement?
+  - Ctrl-Alt-Win: MEH; use for...XS
+- Consider combos on both hands for rare keys like escape
+- Investigate tap/hold/tap-then-hold behaviours for thumb keys to allow for
+  better repeat
+- [ ] Investigate repeat behaviour in general
+- [ ] Update home row mods for opposite-hand-specific behaviour
+- [ ] add ZMK Studo and keymap-drawer once keymap is solidified, zmk-viewer for
+  stacked view of all layers
+- [ ] Homerow combo mods
+- Build front and greek layers
+- [X] buy 2x magic arms and magsafe/camera mount adapter
+- [X] buy 2x desktop magsafe stands for use when standing
+- [ ] Print adjustable (sliding width) magsafe mounting system to put keyboard on
+  either side of either laptop or phone (or some sort of built-in screen + SBC)
+- [ ] Custom or individual keycaps - see below for symbols/colours
+  - fkeycaps and yuzukeycaps for custom printing
+- [ ] add zmk-helpers
+- [X] add badjeff trackball driver and update to 3 levels of sensitivity
+- [X] add auto-mouse layer
+- [ ] add macros for various common actions - miryoku has a lot of good examples
+- [ ] decide on switches - want something lighter than Kailh Box brown
+* Aliexpress Charybdis notes
+Shift is control
+Up is enter
+Ctrl is shift
+Minus and backslash are backspace
+Don't seem to get access to ZMK firmware repository it ships with.
+* Interesting ZMK config files
+- https://github.com/Lurieh/zmk-config/blob/main/config/apiaster.keymap
+- 
+* Keycaps
+- Colour 1: 24x alpha 2x homing
+- Colour 2: 10x numeral
+- Colour 3: 7x , . / ; ' \  -
+- Colour 4: 13x modifiers
+- Escape ⎋
+- Tab ⭾
+- Shift ⇧
+- Control ⎈
+- Meta ◆
+- Backspace ⌫
+- Super ❖
+- Enter ⎆
+- Delete ⌦
+- Hyper ⯌ ✦
+- Layers ⇞⇟ ↥↧ ⤊⤋
+- Available as DSA from SA Plastics: Escape, (empty) Meta, Delete, Backspace,
+  Layers, Control, Tab, Shift, alphanumeric, Enter (arrow), space, layer up/down
+  (diagonal or crossed arrows, layer icons, dual legend Layer +/Layer -), filled
+  arrow keys, Rub Out backspace key
+- FKCaps and Yuzu Keycaps: DSA, grey keycaps vs. KAM keycaps in any color -
+  otherwise same options - use to fill in missing SA Plastics keycaps (filled
+  Meta, Hyper, Control)
+- Fonts:
+  - [[https://github.com/dakotafelder/open-gorton][Open Gorton]]
+  - Gorton Modified (Signature Plastics)
+  - Technic
+  - [[http://gorton-machine.org/forms/form_1309d/page04_large.jpg][Gorton Normal]] - more ads: http://gorton-machine.org/forms/form_1309d/index.html
+  - Skia Regular
+  - Gordon Std
+  - [[https://github.com/ehdorrii/dsky-fonts][DSKY fonts]] - another version of Gorton, traced from Apollo control panels
+  - [[https://shifthappens.site/gorton-perfected-specimen.pdf][Gorton Perfected]] - $20, some good historical keyboard symbols as well
+- Inspo
+  - [[https://upload.wikimedia.org/wikipedia/commons/4/47/Space-cadet.jpg][Space Cadet]], [[https://upload.wikimedia.org/wikipedia/commons/c/cd/Space-cadet-closeup.jpg][front keys]], [[https://stevelosh.com/blog/2012/10/a-modern-space-cadet/#s14-hyper][useful mapping notes]]
+  - [[Https://imgur.com/a/hyper7-Z8pIW][Hyper7]]
+  - [[https://upload.wikimedia.org/wikipedia/commons/a/a2/MCM_Model_70_microcomputer_1974_APL_keyboard.jpg][MCM/70]] APL keyboard
+  - SA A History of Violets by Signature Plastics
+* Canadian stores:
+- https://mech.land/
+- https://www.deskhero.ca
+- https://osume.com/
+- https://www.apexkeyboards.ca/
+- https://beaverkeys.ca/
+- https://www.ashkeebs.com/
+- https://shockport.ca/
+- https://rndkbd.com/
+- https://turtlekeebs.com/
+- https://minokeys.com/
+- https://torontokeyboardman.ca/
+- https://omegakeys.ca/
+- https://keyspresso.ca/
+* Designs: :ARCHIVE:
+* DONE [6/6] Initial Build Purchases (CAD) :ARCHIVE:
