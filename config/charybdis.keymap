@@ -85,6 +85,18 @@
             quick-tap-ms = <100>;
             flavor = "tap-preferred";
         };
+
+        rhandtap: rhandtap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RHANDTAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <199>;
+            flavor = "tap-preferred";
+            hold-trigger-key-positions = <13 25 14 26 37 38 39 15 27 16 40 28 17 29 41 50 51 48>;
+        };
     };
 
     keymap {
@@ -92,11 +104,11 @@
 
         BASE {
             bindings = <
-&mt GRAVE ESCAPE             &kp N1           &kp N2            &kp N3       &kp N4        &kp N5        &kp N6                   &kp N7        &kp N8                &kp N9                 &kp N0             &lt 6 MINUS
-&mt LA(TAB) TAB              &kp Q            &kp W             &kp E        &kp R         &kp T                           &kp Y  &kp U         &kp I                 &kp O                  &kp P              &kp EQUAL
-&caps_tap CAPSLOCK 0         &mt LEFT_GUI A   &mt LALT S        &mt LCTRL D  &mt LSHIFT F  &kp G                           &kp H  &mt RSHIFT J  &mt RCTRL K           &mt RALT L             &mt LEFT_GUI SEMI  &kp APOS
-&mt LC(BACKSPACE) BACKSPACE  &lt 3 Z          &kp X             &kp C        &kp V         &kp B                           &kp N  &kp M         &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt 3 SLASH        &mt LC(DELETE) DELETE
-                             &mt TAB LA(TAB)  &kp LEFT_CONTROL  &kp LGUI     &lt 1 SPACE   &kp LEFT_ALT  &kp LEFT_CONTROL         &lt 2 ENTER                         &sk LEFT_SHIFT
+&mt GRAVE ESCAPE             &kp N1           &kp N2            &kp N3       &kp N4        &kp N5        &kp N6                   &kp N7              &kp N8                &kp N9                 &kp N0                   &lt 6 MINUS
+&mt LA(TAB) TAB              &kp Q            &kp W             &kp E        &kp R         &kp T                           &kp Y  &kp U               &kp I                 &kp O                  &kp P                    &kp EQUAL
+&caps_tap CAPSLOCK 0         &mt LEFT_GUI A   &mt LALT S        &mt LCTRL D  &mt LSHIFT F  &kp G                           &kp H  &rhandtap RSHIFT J  &rhandtap RCTRL K     &rhandtap RALT L       &rhandtap LEFT_GUI SEMI  &kp APOS
+&mt LC(BACKSPACE) BACKSPACE  &lt 3 Z          &kp X             &kp C        &kp V         &kp B                           &kp N  &kp M               &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt 3 SLASH              &mt LC(DELETE) DELETE
+                             &mt TAB LA(TAB)  &kp LEFT_CONTROL  &kp LGUI     &lt 1 SPACE   &kp LEFT_ALT  &kp LEFT_CONTROL         &lt 2 ENTER                               &sk LEFT_SHIFT
             >;
         };
 
