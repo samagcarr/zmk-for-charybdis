@@ -109,6 +109,15 @@
             flavor = "tap-preferred";
             hold-trigger-key-positions = <18 22 30 31 32 33 34 42 43 44 45 46 19 20 21 22 54>;
         };
+
+        lefttd: lefttd {
+            compatible = "zmk,behavior-tap-dance";
+            label = "LEFTTD";
+            #binding-cells = <0>;
+            bindings =
+                <&kp LEFT_ARROW>,
+                <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
+        };
     };
 
     keymap {
@@ -128,7 +137,7 @@
             bindings = <
 &kp F12          &kp F1          &kp F2           &kp F3    &kp F4     &kp F5    &kp F6                &kp F7  &kp F8  &kp F9  &kp F10          &kp F11
 &trans           &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp UP    &kp EQUAL  &kp LBRC              &kp RBRC  &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&kp PRINTSCREEN  &kp INSERT      &kp LEFT         &kp DOWN  &kp RIGHT  &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
+&kp PRINTSCREEN  &kp INSERT      &lefttd          &kp DOWN  &kp RIGHT  &kp LBKT              &kp RBKT  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
 &trans           &kp DEL         &kp PG_UP        &none     &kp PG_DN  &kp LPAR              &kp RPAR  &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &trans
                  &trans          &trans           &trans    &trans     &trans    &kp KP_DOT            &kp N0          &trans
             >;
