@@ -183,11 +183,11 @@
 
         SYM {
             bindings = <
-&kp F12  &kp INSERT  &kp SCROLLLOCK  &kp PRINTSCREEN  &kp PAUSE_BREAK  &ltgtmm     &trans          &trans  &trans  &trans  &trans  &kp F11
-&trans   &trans      &trans          &trans           &trans           &bracemm            &trans  &trans  &trans  &trans  &trans  &trans
-&trans   &trans      &kp GRAVE       &kp TILDE        &trans           &bracketmm          &trans  &trans  &trans  &trans  &trans  &trans
-&trans   &trans      &kp PIPE        &kp BACKSLASH    &trans           &parenmm            &trans  &trans  &trans  &trans  &trans  &trans
-         &trans      &trans          &trans           &trans           &trans      &trans          &none           &trans
+&kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+&trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
+         &trans           &trans         &trans        &trans               &trans       &trans              &none                            &trans
             >;
 
             label = "Non-NUM symbols";
