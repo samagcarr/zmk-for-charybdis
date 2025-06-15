@@ -177,6 +177,8 @@
 &trans   &kp DEL  &kp PG_UP  &trans  &kp PG_DN  &trans              &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &kp EQUAL
          &trans   &trans     &trans  &none      &trans  &kp KP_DOT              &kp N0          &trans
             >;
+
+            label = "Numpad";
         };
 
         SYM {
@@ -187,9 +189,11 @@
 &trans   &trans      &kp PIPE        &kp BACKSLASH    &trans           &parenmm            &trans  &trans  &trans  &trans  &trans  &trans
          &trans      &trans          &trans           &trans           &trans      &trans          &none           &trans
             >;
+
+            label = "Non-NUM symbols";
         };
 
-        ADJ {
+        MOU {
             bindings = <
 &trans  &trans  &trans    &trans    &trans  &trans    &trans          &trans    &trans    &trans    &trans  &trans
 &trans  &trans  &trans    &trans    &trans  &trans            &trans  &trans    &trans    &trans    &trans  &trans
@@ -197,9 +201,11 @@
 &trans  &trans  &mo 5     &tog 4    &trans  &trans            &trans  &trans    &mo 4     &mo 5     &trans  &trans
         &trans  &mkp MB3  &mkp MB2  &trans  &mkp MB1  &trans          &trans              &trans
             >;
+
+            label = "Mouse buttons";
         };
 
-        SNIP {
+        SLOW {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
@@ -207,6 +213,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
             >;
+
+            label = "Slow input";
         };
 
         SCROLL {
@@ -217,6 +225,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
             >;
+
+            label = "Convert mouse to scroll";
         };
 
         SYS {
@@ -227,9 +237,11 @@
 &trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
         &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
             >;
+
+            label = "Keyboard internals";
         };
 
-        SNSC {
+        SLSC {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
@@ -237,6 +249,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
             >;
+
+            label = "Slow scrolling";
         };
 
         NAV {
@@ -247,16 +261,20 @@
 &trans  &kp LC(Z)  &kp C_AC_CUT      &kp LC(C)     &kp K_PASTE        &trans          &trans  &trans  &trans  &trans  &trans  &trans
         &trans     &trans            &trans        &trans             &trans  &none           &trans          &trans
             >;
+
+            label = "Movement keys";
         };
 
         SPR2 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &none   &trans  &trans  &trans  &trans          &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans             &trans             &trans                &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN  &kp K_MUTE         &kp C_VOLUME_UP       &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_PREVIOUS     &kp C_PLAY_PAUSE   &kp C_NEXT            &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_MENU         &kp K_APPLICATION  &kp C_BRIGHTNESS_INC  &trans  &trans
+        &trans  &none   &trans  &trans  &trans  &trans          &trans                                &trans
             >;
+
+            label = "Media, etc";
         };
     };
 
