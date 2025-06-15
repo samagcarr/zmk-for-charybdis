@@ -258,14 +258,14 @@
 &trans  &trans     &trans            &trans        &trans             &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &trans     &mt HOME PAGE_UP  &kp UP_ARROW  &mt END PAGE_DOWN  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &kp LC(A)  &lefttd           &kp DOWN      &kp RIGHT          &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(Z)  &kp C_AC_CUT      &kp LC(C)     &kp K_PASTE        &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LC(Z)  &kp LC(X)         &kp LC(C)     &kp LC(V)          &trans          &trans  &trans  &trans  &trans  &trans  &trans
         &trans     &trans            &trans        &trans             &trans  &none           &trans          &trans
             >;
 
             label = "Movement keys";
         };
 
-        SPR2 {
+        SPR {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans             &kp C_BRI_UP     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE         &kp C_VOLUME_UP  &trans  &trans
