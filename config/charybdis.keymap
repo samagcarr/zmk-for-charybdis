@@ -160,13 +160,13 @@
             >;
         };
 
-        NAV {
+        NUM {
             bindings = <
-&kp F12          &trans      &trans     &trans    &trans     &trans    &trans                  &trans  &trans  &trans  &trans           &kp F11
-&trans           &trans      &trans     &kp UP    &kp EQUAL  &kp LBRC              &bracemm    &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&kp PRINTSCREEN  &kp INSERT  &lefttd    &kp DOWN  &kp RIGHT  &kp LBKT              &bracketmm  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
-&trans           &kp DEL     &kp PG_UP  &trans    &kp PG_DN  &kp LPAR              &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &kp KP_EQUAL
-                 &trans      &trans     &trans    &none      &trans    &kp KP_DOT              &kp N0          &trans
+&kp F12          &trans      &trans     &trans  &trans     &trans  &trans                  &trans  &trans  &trans  &trans           &kp F11
+&trans           &trans      &trans     &trans  &trans     &trans              &bracemm    &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
+&kp PRINTSCREEN  &kp INSERT  &trans     &trans  &trans     &trans              &bracketmm  &kp N4  &kp N5  &kp N6  &kp KP_MINUS     &kp KP_DIVIDE
+&trans           &kp DEL     &kp PG_UP  &trans  &kp PG_DN  &trans              &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &kp KP_EQUAL
+                 &trans      &trans     &trans  &none      &trans  &kp KP_DOT              &kp N0          &trans
             >;
         };
 
@@ -230,13 +230,13 @@
             >;
         };
 
-        SPR1 {
+        NAV {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+&trans  &trans  &trans   &trans        &trans     &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans   &kp UP_ARROW  &trans     &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &lefttd  &kp DOWN      &kp RIGHT  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans   &trans        &trans     &trans          &trans  &trans  &trans  &trans  &trans  &trans
+        &trans  &none    &trans        &trans     &trans  &trans          &trans          &trans
             >;
         };
 
@@ -246,7 +246,7 @@
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+        &trans  &trans  &trans  &trans  &trans  &none           &trans          &trans
             >;
         };
     };
