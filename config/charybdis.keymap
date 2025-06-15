@@ -171,11 +171,11 @@
 
         NUM {
             bindings = <
-&kp F12  &trans   &trans     &trans  &trans     &trans  &ltgtmm                 &trans  &trans  &trans  &trans           &kp F11
-&trans   &trans   &trans     &trans  &trans     &trans              &bracemm    &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
-&trans   &trans   &trans     &trans  &trans     &trans              &bracketmm  &kp N4  &kp N5  &kp N6  &kp MINUS        &kp SLASH
-&trans   &kp DEL  &kp PG_UP  &trans  &kp PG_DN  &trans              &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &kp EQUAL
-         &trans   &trans     &trans  &none      &trans  &kp KP_DOT              &kp N0          &trans
+&kp F12  &trans   &trans         &trans  &trans  &trans  &ltgtmm                 &trans  &trans  &trans  &trans           &kp F11
+&trans   &trans   &trans         &trans  &trans  &trans              &bracemm    &kp N7  &kp N8  &kp N9  &kp KP_PLUS      &trans
+&trans   &trans   &trans         &trans  &trans  &trans              &bracketmm  &kp N4  &kp N5  &kp N6  &kp MINUS        &kp SLASH
+&trans   &kp DEL  &kp BACKSPACE  &trans  &trans  &trans              &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  &kp EQUAL
+         &trans   &trans         &trans  &none   &trans  &kp KP_DOT              &kp N0          &trans
             >;
 
             label = "Numpad";
@@ -255,11 +255,11 @@
 
         NAV {
             bindings = <
-&trans  &trans     &trans            &trans        &trans             &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &mt HOME PAGE_UP  &kp UP_ARROW  &mt END PAGE_DOWN  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(A)  &lefttd           &kp DOWN      &kp RIGHT          &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LC(Z)  &kp LC(X)         &kp LC(C)     &kp LC(V)          &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans     &trans            &trans        &trans             &trans  &none           &trans          &trans
+&kp F12  &trans     &trans            &trans        &trans             &trans  &trans          &trans  &trans  &trans  &trans  &kp F11
+&trans   &trans     &mt HOME PAGE_UP  &kp UP_ARROW  &mt END PAGE_DOWN  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &kp LC(A)  &lefttd           &kp DOWN      &kp RIGHT          &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &kp LC(Z)  &kp LC(X)         &kp LC(C)     &kp LC(V)          &trans          &trans  &trans  &trans  &trans  &trans  &trans
+         &trans     &trans            &trans        &trans             &trans  &none           &trans          &trans
             >;
 
             label = "Movement keys";
@@ -267,11 +267,11 @@
 
         SPR {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans             &kp C_BRI_UP     &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE         &kp C_VOLUME_UP  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &kp C_PREVIOUS        &kp C_PLAY_PAUSE   &kp C_NEXT       &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans                &kp K_APPLICATION  &trans           &trans  &trans
-        &trans  &none   &trans  &trans  &trans  &trans          &trans                                   &trans
+&kp F12  &trans  &trans  &trans  &trans  &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans             &kp C_BRI_UP     &trans  &kp F11
+&trans   &trans  &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE         &kp C_VOLUME_UP  &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans          &trans  &kp C_PREVIOUS        &kp C_PLAY_PAUSE   &kp C_NEXT       &trans  &trans
+&trans   &trans  &trans  &trans  &trans  &trans          &trans  &trans                &kp K_APPLICATION  &trans           &trans  &trans
+         &trans  &none   &trans  &trans  &trans  &trans          &trans                                   &trans
             >;
 
             label = "Media, etc";
