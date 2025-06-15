@@ -255,11 +255,11 @@
 
         NAV {
             bindings = <
-&kp F12  &trans     &trans            &trans        &trans             &trans  &trans          &trans  &trans  &trans  &trans  &kp F11
-&trans   &trans     &mt HOME PAGE_UP  &kp UP_ARROW  &mt END PAGE_DOWN  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans   &kp LC(A)  &lefttd           &kp DOWN      &kp RIGHT          &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans   &kp LC(Z)  &kp LC(X)         &kp LC(C)     &kp LC(V)          &trans          &trans  &trans  &trans  &trans  &trans  &trans
-         &trans     &trans            &trans        &trans             &trans  &none           &trans          &trans
+&kp F12  &trans     &trans            &trans        &trans             &trans  &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+&trans   &trans     &mt HOME PAGE_UP  &kp UP_ARROW  &mt END PAGE_DOWN  &trans           &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &kp LC(A)  &lefttd           &kp DOWN      &kp RIGHT          &trans           &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &kp LC(Z)  &kp LC(X)         &kp LC(C)     &kp LC(V)          &trans           &trans  &trans           &trans          &trans           &trans          &trans
+         &trans     &trans            &trans        &trans             &trans  &none            &trans                           &trans
             >;
 
             label = "Movement keys";
