@@ -23,12 +23,22 @@ ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
 ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8) //
 ZMK_UNICODE_SINGLE(etop, N2, N2, N2, N9)
 ZMK_UNICODE_SINGLE(rtop, N2, N2, N2, A)
-ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N3)
-ZMK_UNICODE_SINGLE(ytop, N2, N2, N8, N4)
+ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N2)
+ZMK_UNICODE_SINGLE(ytop, N2, N2, N8, N3)
 ZMK_UNICODE_SINGLE(utop, N2, N2, N0, N0)
 ZMK_UNICODE_SINGLE(itop, N2, N2, N1, E)
 ZMK_UNICODE_SINGLE(otop, N2, N2, N0, N3)
 ZMK_UNICODE_SINGLE(ptop, N2, N2, N0, N2)
+
+ZMK_UNICODE_SINGLE(atop, N2, N2, A, N5)
+ZMK_UNICODE_SINGLE(stop, N2, N2, A, N4)
+ZMK_UNICODE_SINGLE(dtop, N2, N2, A, N2)
+ZMK_UNICODE_SINGLE(ftop, N2, N2, A, N3)
+ZMK_UNICODE_SINGLE(gtop, N2, B, N6, N1)
+ZMK_UNICODE_SINGLE(htop, N2, B, N6, N3)
+ZMK_UNICODE_SINGLE(jtop, N2, B, N6, N0)
+ZMK_UNICODE_SINGLE(ktop, N2, B, N6, N2)
+ZMK_UNICODE_SINGLE(ltop, N2, B, N6, N4)
 
 
 / {
@@ -298,7 +308,7 @@ ZMK_UNICODE_SINGLE(ptop, N2, N2, N0, N2)
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop   &utop   &itop   &otop   &ptop   &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &atop   &stop   &dtop   &ftop   &gtop           &htop   &jtop   &ktop   &ltop   &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
             >;
