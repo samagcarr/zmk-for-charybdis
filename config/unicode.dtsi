@@ -1,0 +1,40 @@
+
+// Define top layer keys per Space Cadet keyboard; basically for kicks
+
+ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
+ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8) //
+ZMK_UNICODE_SINGLE(etop, N2, N2, N2, N9)
+ZMK_UNICODE_SINGLE(rtop, N2, N2, N2, A)
+ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N2)
+ZMK_UNICODE_SINGLE(ytop, N2, N2, N8, N3)
+ZMK_UNICODE_SINGLE(utop, N2, N2, N0, N0)
+ZMK_UNICODE_SINGLE(itop, N2, N2, N1, E)
+ZMK_UNICODE_SINGLE(otop, N2, N2, N0, N3)
+ZMK_UNICODE_SINGLE(ptop, N2, N2, N0, N2)
+
+ZMK_UNICODE_SINGLE(atop, N2, N2, A, N5)
+ZMK_UNICODE_SINGLE(stop, N2, N2, A, N4)
+ZMK_UNICODE_SINGLE(dtop, N2, N2, A, N2)
+ZMK_UNICODE_SINGLE(ftop, N2, N2, A, N3)
+ZMK_UNICODE_SINGLE(gtop, N2, B, N6, N1)
+ZMK_UNICODE_SINGLE(htop, N2, B, N6, N3)
+ZMK_UNICODE_SINGLE(jtop, N2, B, N6, N0)
+ZMK_UNICODE_SINGLE(ktop, N2, B, N6, N2)
+ZMK_UNICODE_SINGLE(ltop, N2, B, N6, N4)
+
+ZMK_UNICODE_SINGLE(ztop, N2, N3, B, E)
+ZMK_UNICODE_SINGLE(xtop, N2, N3, B, F)
+ZMK_UNICODE_SINGLE(ctop, N2, N2, N6, N0)
+ZMK_UNICODE_SINGLE(vtop, N2, N2, N4, N3)
+ZMK_UNICODE_SINGLE(btop, N2, N2, N6, N1)
+ZMK_UNICODE_SINGLE(ntop, N2, N2, N6, N4)
+ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
+
+// Non-greek Front letters/symbols
+
+ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8)
+ZMK_UNICODE_SINGLE(commafront, N2, N2, N6, A)
+ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
+ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
+ZMK_UNICODE_SINGLE(semicolonfront, N0, N0, A, N8) // Should be a non-combining diaeresis
+ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
