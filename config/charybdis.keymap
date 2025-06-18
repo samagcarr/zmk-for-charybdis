@@ -4,12 +4,12 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/mouse_move.dtsi>
 #include <zmk-helpers/helper.h>
+#include <zmk-helpers/unicode-chars/greek.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <zmk-helpers/unicode-chars/greek.dtsi>
 
 // Define (windows) CUA keycodes (remember that these are just dumb keycodes and won't work in emacs)
 // from https://github.com/manna-harbour/miryoku_zmk/blob/master/miryoku/miryoku_clipboard.h
@@ -21,6 +21,7 @@
 #define U_UND &kp LC(Z)
 
 // Define top layer keys per Space Cadet keyboard; basically for kicks
+
 ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
 ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8) //
 ZMK_UNICODE_SINGLE(etop, N2, N2, N2, N9)
@@ -51,15 +52,18 @@ ZMK_UNICODE_SINGLE(ntop, N2, N2, N6, N4)
 ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
 
 // Non-greek Front letters/symbols
+
 ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8)
 ZMK_UNICODE_SINGLE(commafront, N2, N2, N6, A)
 ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
 ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
 ZMK_UNICODE_SINGLE(semicolonfront, N0, N0, A, N8) // Should be a non-combining diaeresis
-ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
+ZMK_UNICODE_SINGLE {
+    (gravefront, N0, N0, A, N7)
 
 
-/ {
+/
+
     chosen { zmk,matrix_transform = &default_transform; };
 };
 
@@ -195,10 +199,17 @@ ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-    };
 
-    macros {
-  
+        stickyshift_tap: stickyshift_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "STICKYSHIFT_TAP";
+            bindings = <&mo>, <&sk>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            quick-tap-ms = <100>;
+            flavor = "tap-preferred";
+        };
     };
 
     keymap {
@@ -206,11 +217,11 @@ ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
 
         BASE {
             bindings = <
-&mt GRAVE ESCAPE        &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3        &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9        &mt F10 NUMBER_0      &lt 6 MINUS
-&sk LA(LC(LEFT_SHIFT))  &kp Q              &kp W            &kp E                  &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                  &mt K_APP P           &mt LA(LC(LG(LEFT_SHIFT))) EQUAL
-&mt LA(TAB) TAB         &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D         &lhtap LSHIFT F  &kp G                                         &kp H  &rhtap RSHIFT J  &rhtap RCTRL K        &rhtap RALT L          &rhtap LEFT_GUI SEMI  &kp APOS
-&caps_tap CAPSLOCK 0    &lt 3 Z            &kp X            &kp C                  &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt 3 SLASH           &mt LC(DELETE) DELETE
-                        &key_repeat        &lt 9 ENTER      &lt 11 DELETE  &lt 1 SPACE      &mt LC(BACKSPACE) BACKSPACE  &lt 8 SPACE             &lt 2 ENTER                            &sk LEFT_SHIFT
+&mt GRAVE ESCAPE        &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                 &mt F10 NUMBER_0      &lt 6 MINUS
+&sk LA(LC(LEFT_SHIFT))  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                           &mt K_APP P           &mt LA(LC(LG(LEFT_SHIFT))) EQUAL
+&mt LA(TAB) TAB         &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhtap LSHIFT F  &kp G                                         &kp H  &rhtap RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L               &rhtap LEFT_GUI SEMI  &kp APOS
+&caps_tap CAPSLOCK 0    &lt 3 Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD           &lt 3 SLASH           &mt LC(DELETE) DELETE
+                        &key_repeat        &lt 9 ENTER      &lt 11 DELETE    &lt 1 SPACE      &mt LC(BACKSPACE) BACKSPACE  &lt 8 SPACE             &lt 2 ENTER                            &stickyshift_tap 10 LEFT_SHIFT
             >;
         };
 
@@ -324,21 +335,21 @@ ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
 
         TOP {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop   &utop   &itop   &otop   &ptop   &trans
-&trans  &atop   &stop   &dtop   &ftop   &gtop           &htop   &jtop   &ktop   &ltop   &trans  &trans
-&trans  &ztop   &xtop   &ctop   &vtop   &btop           &ntop   &mtop   &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
+&trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop  &utop   &itop   &otop   &ptop   &trans
+&trans  &atop   &stop   &dtop   &ftop   &gtop           &htop  &jtop   &ktop   &ltop   &trans  &trans
+&trans  &ztop   &xtop   &ctop   &vtop   &btop           &ntop  &mtop   &trans  &trans  &trans  &trans
+        &trans  &trans  &trans  &trans  &trans  &trans         &trans          &trans
             >;
         };
 
         FRNT {
             bindings = <
-&gravefront  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &el_theta   &el_omega   &el_epsilon_sym   &el_rho_sym   &el_tau           &el_psi   &el_upsilon   &el_iota   &el_omikron   &el_pi   &eqfront
-&trans  &el_alpha   &el_sigma   &el_delta   &el_phi_sym   &el_gamma           &el_eta  &el_theta_sym   &el_kappa_sym  &el_lambda   &semicolonfront  &trans
-&trans  &el_zeta   &el_xi   &el_chi   &el_final_sigma   &el_beta           &el_nu  &el_mu   &commafront  &periodfront  &slashfront  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+&gravefront  &trans     &trans     &trans           &trans           &trans     &trans           &trans         &trans         &trans        &trans           &trans
+&trans       &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau            &el_psi  &el_upsilon    &el_iota       &el_omikron   &el_pi           &eqfront
+&trans       &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma          &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda    &semicolonfront  &trans
+&trans       &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta           &el_nu   &el_mu         &commafront    &periodfront  &slashfront      &trans
+             &trans     &trans     &trans           &trans           &trans     &trans           &trans                        &trans
             >;
         };
     };
