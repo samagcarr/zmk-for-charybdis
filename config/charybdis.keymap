@@ -326,7 +326,7 @@ ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
         FRNT {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &el_theta_sym   &el_omega_sym   &el_epsilon_sym   &el_rho_sym   &el_tau           &el_psi   &el_upsilon   &el_iota   &otop   &el_pi   &trans
+&trans  &el_theta_sym   &el_omega   &el_epsilon_sym   &el_rho_sym   &el_tau           &el_psi   &el_upsilon   &el_iota   &otop   &el_pi   &trans
 &trans  &el_alpha   &el_sigma   &el_delta   &el_phi_sym   &el_gamma           &el_eta  &jtop   &el_kappa_sym  &el_lambda   &trans  &trans
 &trans  &el_zeta   &el_xi   &el_chi   &el_final_sigma   &el_beta           &el_nu  &el_mu   &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
