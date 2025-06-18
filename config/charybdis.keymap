@@ -19,8 +19,12 @@
 #define U_CUT &kp LC(X)
 #define U_UND &kp LC(Z)
 
-ZMK_UNICODE_SINGLE {
-    (wtop, N2, N2, N2, N8)
+ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
+ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8) //
+ZMK_UNICODE_SINGLE(etop, N2, N2, N2, N9)
+ZMK_UNICODE_SINGLE(rtop, N2, N2, N2, A)
+ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N3)
+ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N4)
 
 /
 
@@ -308,7 +312,7 @@ ZMK_UNICODE_SINGLE {
         TOP {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &top_q  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop   &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
