@@ -54,6 +54,10 @@ ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
 ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8)
 ZMK_UNICODE_SINGLE(commafront, N2, N2, N6, A)
 ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
+ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
+ZMK_UNICODE_SINGLE(semicolonfront, N0, N0, , N8) // Should be a non-combining diaeresis
+ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
+
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
@@ -330,10 +334,10 @@ ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
 
         FRNT {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+&gravefront  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &el_theta   &el_omega   &el_epsilon_sym   &el_rho_sym   &el_tau           &el_psi   &el_upsilon   &el_iota   &el_omikron   &el_pi   &eqfront
-&trans  &el_alpha   &el_sigma   &el_delta   &el_phi_sym   &el_gamma           &el_eta  &el_theta_sym   &el_kappa_sym  &el_lambda   &trans  &trans
-&trans  &el_zeta   &el_xi   &el_chi   &el_final_sigma   &el_beta           &el_nu  &el_mu   &commafront  &periodfront  &trans  &trans
+&trans  &el_alpha   &el_sigma   &el_delta   &el_phi_sym   &el_gamma           &el_eta  &el_theta_sym   &el_kappa_sym  &el_lambda   &semicolonfront  &trans
+&trans  &el_zeta   &el_xi   &el_chi   &el_final_sigma   &el_beta           &el_nu  &el_mu   &commafront  &periodfront  &slashfront  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
             >;
         };
