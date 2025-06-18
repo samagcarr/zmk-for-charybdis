@@ -26,8 +26,7 @@ ZMK_UNICODE_SINGLE(rtop, N2, N2, N2, A)
 ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N3)
 ZMK_UNICODE_SINGLE(ttop, N2, N2, N8, N4)
 
-/
-
+/ {
     chosen { zmk,matrix_transform = &default_transform; };
 };
 
