@@ -164,7 +164,7 @@
 &mt GRAVE ESCAPE        &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3        &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9        &mt F10 NUMBER_0      &lt 6 MINUS
 &sk LA(LC(LEFT_SHIFT))  &kp Q              &kp W            &kp E                  &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                  &mt K_APP P           &mt LA(LC(LG(LEFT_SHIFT))) EQUAL
 &mt LA(TAB) TAB         &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D         &lhtap LSHIFT F  &kp G                                         &kp H  &rhtap RSHIFT J  &rhtap RCTRL K        &rhtap RALT L          &rhtap LEFT_GUI SEMI  &mt LA(LS(TAB)) APOS
-&caps_tap CAPSLOCK 0    &lt 3 Z            &kp X            &kp C                  &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt 3 SLASH           &mt HOME PAGE_UP
+&caps_tap CAPSLOCK 0    &lt 3 Z            &kp X            &kp C                  &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt 3 SLASH           &mt LC(DELETE) DELETE
                         &key_repeat        &lt 9 ENTER      &mt LC(DELETE) DELETE  &lt 1 SPACE      &mt LC(BACKSPACE) BACKSPACE  &lt 8 SPACE             &lt 2 ENTER                            &sk LEFT_SHIFT
             >;
         };
