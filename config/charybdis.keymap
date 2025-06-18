@@ -40,6 +40,13 @@ ZMK_UNICODE_SINGLE(jtop, N2, B, N6, N0)
 ZMK_UNICODE_SINGLE(ktop, N2, B, N6, N2)
 ZMK_UNICODE_SINGLE(ltop, N2, B, N6, N4)
 
+ZMK_UNICODE_SINGLE(ztop, N2, N3, B, E)
+ZMK_UNICODE_SINGLE(xtop, N2, N3, B, F)
+ZMK_UNICODE_SINGLE(ctop, N2, N2, N6, N0)
+ZMK_UNICODE_SINGLE(vtop, N2, N2, N4, N3)
+ZMK_UNICODE_SINGLE(btop, N2, N2, N6, N1)
+ZMK_UNICODE_SINGLE(ntop, N2, N2, N6, N4)
+ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
@@ -309,7 +316,7 @@ ZMK_UNICODE_SINGLE(ltop, N2, B, N6, N4)
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
 &trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop   &utop   &itop   &otop   &ptop   &trans
 &trans  &atop   &stop   &dtop   &ftop   &gtop           &htop   &jtop   &ktop   &ltop   &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &ztop   &xtop   &ctop   &vtop   &btop           &ntop   &mtop   &trans  &trans  &trans  &trans
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
             >;
         };
