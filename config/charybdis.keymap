@@ -19,7 +19,7 @@
 #define U_CUT &kp LC(X)
 #define U_UND &kp LC(Z)
 
-#define ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8)
+ZMK_UNICODE_SINGLE(wtop, N2, N2, N2, N8)
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
