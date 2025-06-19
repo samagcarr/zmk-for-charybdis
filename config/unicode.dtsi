@@ -39,7 +39,7 @@ ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
 ZMK_UNICODE_SINGLE(semicolonfront, N0, N0, A, N8) // Should be a non-combining diaeresis
 ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
 ZMK_UNICODE_SINGLE(minusfront, N2, N0, N1, N4)
-ZMK_UNICODE_SINGLE(1front, N2, N0, N2, N0)
+ZMK_UNICODE_SINGLE(onefront, N2, N0, N2, N0)
 ZMK_UNICODE_SINGLE(2front, N2, N0, N2, N1)
 ZMK_UNICODE_SINGLE(3front, N2, N5, B, D)
 ZMK_UNICODE_SINGLE(4front, N0, N0, A, N2)
