@@ -55,18 +55,18 @@ ZMK_UNICODE_SINGLE(zerofront, N2, N5, E, F)
 
 // First-level keyys from space commander keyboard
 // Missing four-char unicode thumbs up/down
-ZMK_UNICODE_SYMBOL(romani, N2, N1, N6, N0)
-ZMK_UNICODE_SYMBOL(romanii, N2, N1, N6, N1)
-ZMK_UNICODE_SYMBOL(romaniii, N2, N1, N6, N2)
-ZMK_UNICODE_SYMBOL(romaniv, N2, N1, N6, N3)
+ZMK_UNICODE_SINGLE(romani, N2, N1, N6, N0)
+ZMK_UNICODE_SINGLE(romanii, N2, N1, N6, N1)
+ZMK_UNICODE_SINGLE(romaniii, N2, N1, N6, N2)
+ZMK_UNICODE_SINGLE(romaniv, N2, N1, N6, N3)
 
 
 
-ZMK_UNICODE_SYMBOL(pointr, N2, N6, N1, E)
-ZMK_UNICODE_SYMBOL(pointl, N2, N6, N1, C)
-ZMK_UNICODE_SYMBOL(pointu, N2, N6, N1, D)
-ZMK_UNICODE_SYMBOL(pointd, N2, N6, N1, F)
-ZMK_UNICODE_SYMBOL(thumbufront, N2, N2, N9, N6)
-ZMK_UNICODE_SYMBOL(thumbdfront, N2, N2, N9, N5)
-ZMK_UNICODE_SYMBOL(pointrfront, N2, N2, N9, N8)
-ZMK_UNICODE_SYMBOL(pointlfront, N2, N2, N9, N7)
+ZMK_UNICODE_SINGLE(pointr, N2, N6, N1, E)
+ZMK_UNICODE_SINGLE(pointl, N2, N6, N1, C)
+ZMK_UNICODE_SINGLE(pointu, N2, N6, N1, D)
+ZMK_UNICODE_SINGLE(pointd, N2, N6, N1, F)
+ZMK_UNICODE_SINGLE(thumbufront, N2, N2, N9, N6)
+ZMK_UNICODE_SINGLE(thumbdfront, N2, N2, N9, N5)
+ZMK_UNICODE_SINGLE(pointrfront, N2, N2, N9, N8)
+ZMK_UNICODE_SINGLE(pointlfront, N2, N2, N9, N7)
