@@ -32,7 +32,8 @@ ZMK_UNICODE_SINGLE(ntop, N2, N2, N6, N4)
 ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
 
 // Non-greek Front letters/symbols
-ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8) // 
+// Missing  {< >}; ([ ]); two vertical dots/plus or minus/section marker;
+ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8)
 ZMK_UNICODE_SINGLE(commafront, N2, N2, N6, A)
 ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
 ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
@@ -51,4 +52,20 @@ ZMK_UNICODE_SINGLE(ninefront, N0, N0, B, N6)
 ZMK_UNICODE_SINGLE(quotefront, N0, N0, B, N7)
 ZMK_UNICODE_SINGLE(backslashfront, N2, N0, N1, N6)
 
-// Keys missing from front layer: {< >}; ([ ]); two vertical dots/plus or minus/section marker;
+// First-level keyys from space commander keyboard
+// Missing four-char unicode thumbs up/down
+ZMK_UNICODE_SYMBOL(romani, N2, N1, N6, N0)
+ZMK_UNICODE_SYMBOL(romanii, N2, N1, N6, N1)
+ZMK_UNICODE_SYMBOL(romaniii, N2, N1, N6, N2)
+ZMK_UNICODE_SYMBOL(romaniv, N2, N1, N6, N3)
+
+
+
+ZMK_UNICODE_SYMBOL(pointr, N2, N6, N1, E)
+ZMK_UNICODE_SYMBOL(pointl, N2, N6, N1, C)
+ZMK_UNICODE_SYMBOL(pointu, N2, N6, N1, D)
+ZMK_UNICODE_SYMBOL(pointd, N2, N6, N1, F)
+ZMK_UNICODE_SYMBOL(thumbufront, N2, N2, N9, N6)
+ZMK_UNICODE_SYMBOL(thumbdfront, N2, N2, N9, N5)
+ZMK_UNICODE_SYMBOL(pointrfront, N2, N2, N9, N8)
+ZMK_UNICODE_SYMBOL(pointlfront, N2, N2, N9, N7)
