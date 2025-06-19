@@ -51,6 +51,7 @@ ZMK_UNICODE_SINGLE(eightfront, N0, N0, D, N7)
 ZMK_UNICODE_SINGLE(ninefront, N0, N0, B, N6)
 ZMK_UNICODE_SINGLE(quotefront, N0, N0, B, N7)
 ZMK_UNICODE_SINGLE(backslashfront, N2, N0, N1, N6)
+ZMK_UNICODE_SINGLE(zerofront, N2, N5, E, F)
 
 // First-level keyys from space commander keyboard
 // Missing four-char unicode thumbs up/down
