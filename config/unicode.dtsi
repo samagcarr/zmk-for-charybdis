@@ -32,9 +32,20 @@ ZMK_UNICODE_SINGLE(ntop, N2, N2, N6, N4)
 ZMK_UNICODE_SINGLE(mtop, N2, N2, N6, N5)
 
 // Non-greek Front letters/symbols
-ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8)
+ZMK_UNICODE_SINGLE(eqfront, N2, N2, N4, N8) // 
 ZMK_UNICODE_SINGLE(commafront, N2, N2, N6, A)
 ZMK_UNICODE_SINGLE(periodfront, N2, N2, N6, B)
 ZMK_UNICODE_SINGLE(slashfront, N2, N2, N2, B)
 ZMK_UNICODE_SINGLE(semicolonfront, N0, N0, A, N8) // Should be a non-combining diaeresis
 ZMK_UNICODE_SINGLE(gravefront, N0, N0, A, N7)
+ZMK_UNICODE_SINGLE(minusfront, N2, N0, N1, N4)
+ZMK_UNICODE_SINGLE(1front, N2, N0, N2, N0)
+ZMK_UNICODE_SINGLE(2front, N2, N0, N2, N1)
+ZMK_UNICODE_SINGLE(3front, N2, N5, B, D)
+ZMK_UNICODE_SINGLE(4front, N0, N0, A, N2)
+ZMK_UNICODE_SINGLE(5front, N0, N0, B, N0)
+ZMK_UNICODE_SINGLE(6front, N2, N5, A, F)
+ZMK_UNICODE_SINGLE(7front, N0, N0, F, N7)
+ZMK_UNICODE_SINGLE(8front, N0, N0, D, N7)
+ZMK_UNICODE_SINGLE(9front, N0, N0, B, N6)
+ZMK_UNICODE_SINGLE(0front, N2, N5, E, F)
