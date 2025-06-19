@@ -306,8 +306,8 @@
             bindings = <
 &gravefront  &onefront     &twofront     &threefront           &fourfront           &fivefront     &sixfront           &sevenfront
 &eightfront         &ninefront        &zerofront           &minusfront
-&trans       &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau            &el_psi  &el_upsilon    &el_iota       &el_omikron   &el_pi           &eqfront
-&trans       &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma          &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda    &semicolonfront  &trans
+&backslashfront       &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau            &el_psi  &el_upsilon    &el_iota       &el_omikron   &el_pi           &eqfront
+&trans       &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma          &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda    &semicolonfront  &quotefront
 &trans       &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta           &el_nu   &el_mu         &commafront    &periodfront  &slashfront      &trans
              &trans     &trans     &trans           &trans           &trans     &trans           &trans                        &trans
             >;
