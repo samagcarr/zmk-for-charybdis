@@ -22,13 +22,6 @@
 
 / {
     chosen { zmk,matrix_transform = &default_transform; };
-
-    /omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
-        compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>;
-        require-prior-idle-ms = <500>;
-        excluded-positions = <32 33 34 38 39 40 45 46 47>;
-    };
 };
 
 &mt {
@@ -187,6 +180,13 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+				/omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+					compatible = "zmk,input-processor-temp-layer";
+					#input-processor-cells = <2>;
+					require-prior-idle-ms = <500>;
+					excluded-positions = <32 33 34 38 39 40 45 46 47>;
+				};
     };
 
     keymap {
