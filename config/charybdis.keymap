@@ -48,7 +48,7 @@
     input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
         <&zip_xy_scaler 1 1>,
-        <&zip_temp_layer 3 500>;
+        <&my_temp_layer 3 500>;
 
     sniper {
         layers = <4 7>;
@@ -181,7 +181,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-				/omit-if-no-ref/ zip_temp_layer: zip_temp_layer {
+				/omit-if-no-ref/ zip_temp_layer: my_temp_layer {
 					compatible = "zmk,input-processor-temp-layer";
 					#input-processor-cells = <2>;
 					require-prior-idle-ms = <500>;
