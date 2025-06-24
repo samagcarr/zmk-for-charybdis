@@ -48,7 +48,7 @@
 
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
-j
+
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast. 1 seems fine?
 
 &trackball_listener {
