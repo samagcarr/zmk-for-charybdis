@@ -181,7 +181,7 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
-				/omit-if-no-ref/ zip_temp_layer: my_temp_layer {
+				/omit-if-no-ref/ my_temp_layer: my_temp_layer {
 					compatible = "zmk,input-processor-temp-layer";
 					#input-processor-cells = <2>;
 					require-prior-idle-ms = <500>;
