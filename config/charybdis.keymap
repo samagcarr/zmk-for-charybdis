@@ -126,6 +126,15 @@
                 <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
         };
 
+				pastetd: pastetd {
+					compatible = "zmk,behaviour-tap-dance";
+					label = "Paste";
+					#binding-cells = <0>;
+					bindings =
+						<&kp LC(V)>,
+						<&kp LG(V);
+				};
+
         bracketmm: bracketmm {
             compatible = "zmk,behavior-mod-morph";
             label = "[]";
@@ -294,7 +303,7 @@
 &kp F12  &trans       &trans             &trans        &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
 &trans   &kp PAGE_UP  &mt LC(HOME) HOME  &kp UP_ARROW  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &kp LC(A)    &lefttd            &kp DOWN      &kp RIGHT        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &kp LC(V)        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &pastetd        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
          &trans       &trans             &trans        &trans           &trans         &none            &trans                           &trans
             >;
 
