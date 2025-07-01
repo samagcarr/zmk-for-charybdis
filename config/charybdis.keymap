@@ -301,7 +301,7 @@
         NAV {
             bindings = <
 &kp F12  &trans       &trans             &trans        &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&trans   &kp PAGE_UP  &mt LC(HOME) HOME  &kp UP_ARROW  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
+&kp LG(LS(PRINTSCREEN))   &kp PAGE_UP  &mt LC(HOME) HOME  &kp UP_ARROW  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &kp LC(A)    &lefttd            &kp DOWN      &kp RIGHT        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &pastetd        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
          &trans       &trans             &trans        &trans           &trans         &none            &trans                           &trans
