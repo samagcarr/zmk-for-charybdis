@@ -127,7 +127,7 @@
         };
 
 				pastetd: pastetd {
-					compatible = "zmk,behaviour-tap-dance";
+					compatible = "zmk,behavior-tap-dance";
 					label = "Paste";
 					#binding-cells = <0>;
 					bindings =
