@@ -132,7 +132,7 @@
             #binding-cells = <0>;
             bindings =
 							<&mt LC(LS(RIGHT_ARROW)) RIGHT_ARROW>,
-							<&kp LC(RIGHT_ARROW);
+							<&kp LC(RIGHT_ARROW)>;
                 
         };
 
@@ -142,7 +142,7 @@
             #binding-cells = <0>;
             bindings =
 							<&mt LC(LS(UP_ARROW)) UP_ARROW>,
-							<&kp LC(UP_ARROW);
+							<&kp LC(UP_ARROW)>;
         };
 
 				downtd: downtd {
@@ -151,7 +151,7 @@
             #binding-cells = <0>;
             bindings =
 							<&mt LC(LS(DOWN_ARROW)) DOWN_ARROW>,
-							<&kp LC(DOWN_ARROW);
+							<&kp LC(DOWN_ARROW)>;
         };
 
 				pastetd: pastetd {
