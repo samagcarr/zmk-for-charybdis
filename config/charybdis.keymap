@@ -126,6 +126,34 @@
                 <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
         };
 
+				righttd: righttd {
+            compatible = "zmk,behavior-tap-dance";
+            label = "RIGHTTD";
+            #binding-cells = <0>;
+            bindings =
+							<&mt LC(LS(RIGHT_ARROW)) RIGHT_ARROW>,
+							<&kp LC(RIGHT_ARROW);
+                
+        };
+
+				uptd: uptd {
+            compatible = "zmk,behavior-tap-dance";
+            label = "UPTD";
+            #binding-cells = <0>;
+            bindings =
+							<&mt LC(LS(UP_ARROW)) UP_ARROW>,
+							<&kp LC(UP_ARROW);
+        };
+
+				downtd: downtd {
+            compatible = "zmk,behavior-tap-dance";
+            label = "DOWNTD";
+            #binding-cells = <0>;
+            bindings =
+							<&mt LC(LS(DOWN_ARROW)) DOWN_ARROW>,
+							<&kp LC(DOWN_ARROW);
+        };
+
 				pastetd: pastetd {
 					compatible = "zmk,behavior-tap-dance";
 					label = "Paste";
@@ -301,8 +329,8 @@
         NAV {
             bindings = <
 &kp F12  &trans       &trans             &trans        &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(PRINTSCREEN))   &kp PAGE_UP  &mt LC(HOME) HOME  &kp UP_ARROW  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &kp LC(A)    &lefttd            &kp DOWN      &kp RIGHT        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
+&kp LG(LS(PRINTSCREEN))   &kp PAGE_UP  &mt LC(HOME) HOME  &uptd  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
+&trans   &kp LC(A)    &lefttd            &downtd      &righttd        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &pastetd        &kp LS(INS)                  &trans  &trans           &trans          &trans           &trans          &trans
          &trans       &trans             &trans        &trans           &trans         &none            &trans                           &trans
             >;
