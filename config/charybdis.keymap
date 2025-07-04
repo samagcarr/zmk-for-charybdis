@@ -1,382 +1,397 @@
 #include <dt-bindings/zmk/mouse.h>
-#include <behaviors/mouse_keys.dtsi>
-#include <input/processors.dtsi>
-#include <dt-bindings/zmk/input_transform.h>
-#include <behaviors/mouse_move.dtsi>
-#include <zmk-helpers/helper.h>
+ #include <behaviors/mouse_keys.dtsi>
+ #include <input/processors.dtsi>
+ #include <dt-bindings/zmk/input_transform.h>
+ #include <behaviors/mouse_move.dtsi>
+ #include <behaviors.dtsi>
+ #include <zmk-helpers/helper.h> // Source after behaviors.dtsi
+ #include <dt-bindings/zmk/bt.h>
+ #include <dt-bindings/zmk/keys.h>
+ #include <dt-bindings/zmk/outputs.h>
+ #include <dt-bindings/zmk/pointing.h>
 
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/pointing.h>
+ #include <zmk-helpers/unicode-chars/greek.dtsi>
+ #include "unicode.dtsi"
 
-#include <zmk-helpers/unicode-chars/greek.dtsi>
-#include "unicode.dtsi"
+ // Define (windows) CUA keycodes (remember that these are just dumb keycodes and won't work in emacs)
+ // from https://github.com/manna-harbour/miryoku_zmk/blob/master/miryoku/miryoku_clipboard.h
 
-// Define (windows) CUA keycodes (remember that these are just dumb keycodes and won't work in emacs)
-// from https://github.com/manna-harbour/miryoku_zmk/blob/master/miryoku/miryoku_clipboard.h
+ #define U_RDO &kp LC(Y)
+ #define U_PST &kp LC(V)
+ #define U_CPY &kp LC(C)
+ #define U_CUT &kp LC(X)
+ #define U_UND &kp LC(Z)
 
-#define U_RDO &kp LC(Y)
-#define U_PST &kp LC(V)
-#define U_CPY &kp LC(C)
-#define U_CUT &kp LC(X)
-#define U_UND &kp LC(Z)
+ // Set default row/column to actual key grid transform
 
-/ {
-    chosen { zmk,matrix_transform = &default_transform; };
+ / {
+  chosen { zmk,matrix_transform = &default_transform; };
 };
 
+
+// Default mod-tap settings
 &mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+  quick-tap-ms = <100>;
+  global-quick-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <170>;
 };
 
+// Default layer-tap settings
 &lt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+  quick-tap-ms = <100>;
+  global-quick-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <170>;
 };
 
+// Defaults for caps-word behaviour
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
 
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast. 1 seems fine?
-
 &trackball_listener {
+  input-processors =
+    <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
+    <&zip_xy_scaler 1 1>,
+    <&my_temp_layer 3 500>;
+
+  sniper {
+    layers = <4 7>;
+    input-processors = <&zip_xy_scaler 1 8>;
+    process-next;
+  };
+
+  scroller {
+    layers = <5 7>;
     input-processors =
-        <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
-        <&zip_xy_scaler 1 1>,
-        <&my_temp_layer 3 500>;
-
-    sniper {
-        layers = <4 7>;
-        input-processors = <&zip_xy_scaler 1 8>;
-        process-next;
-    };
-
-    scroller {
-        layers = <5 7>;
-        input-processors =
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
-            <&zip_xy_to_scroll_mapper>;
-    };
+      <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
+      <&zip_xy_to_scroll_mapper>;
+  };
 };
 
 / {
-    combos { compatible = "zmk,combos"; };
+  combos { compatible = "zmk,combos"; };
 
-    behaviors {
-        mouse_tap: mouse_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "MOUSE_TAP";
-            bindings = <&mkp>, <&kp>;
+  behaviors {
 
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <170>;
-            quick-tap-ms = <100>;
-        };
+		swapper: swapper {
+			compatible = "zmk,behavior-tri-state";
+			#binding-cells = <0>;
+			//timeout-ms = <200>; // Delay in firing final behavior
+//			ignored-key-positions = <>;
+			bindings = <&kt LALT>,
+								 <&kp TAB>,
+								 <&kt LALT>;							 
+		};
+		
+		mouse_tap: mouse_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "MOUSE_TAP";
+      bindings = <&mkp>, <&kp>;
 
-        caps_tap: caps_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "CAPS_TAP";
-            bindings = <&mo>, <&shiftcaps>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <100>;
-            flavor = "tap-preferred";
-        };
-
-        rhtap: rhtap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "RHTAP";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <100>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <13 25 14 26 37 38 39 15 27 16 40 28 17 29 41 5 4 3 2 1 0 24 49 52 51 12 36>;
-            hold-trigger-on-release;
-        };
-
-        lhtap: lhtap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "LHTAP";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <100>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <18 22 30 31 32 33 34 42 43 44 45 46 19 20 21 22 54 10 9 8 7 6 10 11 22 23 35 47>;
-            hold-trigger-on-release;
-        };
-
-        lefttd: lefttd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "LEFTTD";
-            #binding-cells = <0>;
-            bindings =
-                <&kp LEFT_ARROW>,
-                <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
-        };
-
-				righttd: righttd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "RIGHTTD";
-            #binding-cells = <0>;
-            bindings =
-							<&mt LC(LS(RIGHT_ARROW)) RIGHT_ARROW>,
-							<&kp LC(RIGHT_ARROW)>;
-                
-        };
-
-				uptd: uptd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "UPTD";
-            #binding-cells = <0>;
-            bindings =
-							<&mt LC(LS(UP_ARROW)) UP_ARROW>,
-							<&kp LC(UP_ARROW)>;
-        };
-
-				downtd: downtd {
-            compatible = "zmk,behavior-tap-dance";
-            label = "DOWNTD";
-            #binding-cells = <0>;
-            bindings =
-							<&mt LC(LS(DOWN_ARROW)) DOWN_ARROW>,
-							<&kp LC(DOWN_ARROW)>;
-        };
-
-				pastetd: pastetd {
-					compatible = "zmk,behavior-tap-dance";
-					label = "Paste";
-					#binding-cells = <0>;
-					bindings =
-						<&kp LC(V)>,
-						<&kp LG(V)>;
-				};
-
-        bracketmm: bracketmm {
-            compatible = "zmk,behavior-mod-morph";
-            label = "[]";
-            bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_RSFT|MOD_LSFT)>;
-        };
-
-        parenmm: parenmm {
-            compatible = "zmk,behavior-mod-morph";
-            label = "()";
-            bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        bracemm: bracemm {
-            compatible = "zmk,behavior-mod-morph";
-            label = "{}";
-            bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        ltgtmm: ltgtmm {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LTGTMM";
-            bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        stickyshift_tap: stickyshift_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "STICKYSHIFT_TAP";
-            bindings = <&mo>, <&sk>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <170>;
-            quick-tap-ms = <100>;
-            flavor = "tap-preferred";
-        };
-
-        shiftcaps: shiftcaps {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SHIFTCAPS";
-            bindings = <&caps_word>, <&kp CAPSLOCK>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        /omit-if-no-ref/
-
-        my_temp_layer: my_temp_layer {
-            compatible = "zmk,input-processor-temp-layer";
-            #input-processor-cells = <2>;
-            require-prior-idle-ms = <500>;
-            excluded-positions = <32 33 34 38 39 40 45 46 47>;
-        };
+      #binding-cells = <2>;
+      flavor = "tap-preferred";
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
     };
 
-    keymap {
-        compatible = "zmk,keymap";
+    caps_tap: caps_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "CAPS_TAP";
+      bindings = <&mo>, <&shiftcaps>;
 
-        BASE {
-            bindings = <
-&mt GRAVE ESCAPE             &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                 &mt F10 NUMBER_0      &lt 6 MINUS
-&mt LA(LG(SPACE)) BACKSLASH  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                           &mt K_APP P           &mt LA(LC(LG(LEFT_SHIFT))) EQUAL
-&mt LA(TAB) TAB              &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhtap LSHIFT F  &kp G                                         &kp H  &rhtap RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L               &rhtap LEFT_GUI SEMI  &kp APOS
-&caps_tap 2 0                &lt 3 Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD           &lt 3 SLASH           &mt LC(DELETE) DELETE
-                             &lt 11 DEL         &lt 9 ENTER      &key_repeat      &lt 1 SPACE      &mt LC(BACKSPACE) BACKSPACE  &lt 8 SPACE             &lt 2 ENTER                            &stickyshift_tap 10 LEFT_SHIFT
-            >;
-        };
-
-        NUM {
-            bindings = <
-&kp F12  &trans  &trans  &trans  &trans                       &trans     &ltgtmm              &trans  &trans  &trans      &trans           &kp F11
-&trans   &trans  &trans  &trans  &mt LC(DEL) DELETE           &trans              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      &trans
-&trans   &trans  &trans  &trans  &trans                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
-&trans   &trans  &trans  &trans  &mt LC(BACKSPACE) BACKSPACE  &trans              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  &kp EQUAL
-         &trans  &trans  &trans  &none                        &trans     &trans               &kp N0          &kp KP_DOT
-            >;
-
-            label = "Numpad";
-        };
-
-        SYM {
-            bindings = <
-&kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &kp TAB
-&trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
-         &trans           &trans         &trans        &trans               &trans       &trans              &none                            &trans
-            >;
-
-            label = "Non-NUM symbols";
-        };
-
-        MOU {
-            bindings = <
-&trans  &trans  &trans    &trans    &trans    &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans    &trans    &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5     &mo 4     &trans    &trans          &trans  &trans    &mo 4     &mo 5     &trans  &trans
-        &trans  &mkp MB3  &mkp MB2  &mkp MB1  &trans  &trans          &trans              &trans
-            >;
-
-            label = "Mouse buttons";
-        };
-
-        SLOW {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
-            >;
-
-            label = "Slow input";
-        };
-
-        SCROLL {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
-            >;
-
-            label = "Convert mouse to scroll";
-        };
-
-        SYS {
-            bindings = <
-&trans  &trans       &trans      &trans      &trans      &trans        &trans                &trans      &trans      &trans      &trans       &trans
-&trans  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   &trans
-&trans  &bootloader  &trans      &trans      &trans      &trans                &bt BT_SEL 1  &trans      &trans      &trans      &bootloader  &trans
-&trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
-        &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
-            >;
-
-            label = "Keyboard internals";
-        };
-
-        SLSC {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
-            >;
-
-            label = "Slow scrolling";
-        };
-
-        NAV {
-            bindings = <
-&kp F12  &trans       &trans             &trans        &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(PRINTSCREEN))   &kp PAGE_UP  &mt LC(HOME) HOME  &uptd  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &kp LC(A)    &lefttd            &downtd      &righttd        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &pastetd        &kp LS(INS)                  &trans  &trans           &trans          &trans           &trans          &trans
-         &trans       &trans             &trans        &trans           &trans         &none            &trans                           &trans
-            >;
-
-            label = "Movement keys";
-        };
-
-        SPR {
-            bindings = <
-&kp F12  &kp K_LOCK  &trans  &trans  &trans  &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans            &kp C_BRI_UP     &trans  &kp F11
-&trans   &trans      &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE        &kp C_VOLUME_UP  &trans  &trans
-&trans   &trans      &trans  &trans  &trans  &trans          &trans  &kp C_PREVIOUS        &kp C_PLAY_PAUSE  &kp C_NEXT       &trans  &trans
-&trans   &trans      &trans  &trans  &trans  &trans          &trans  &trans                &trans            &trans           &trans  &trans
-         &trans      &none   &trans  &trans  &trans  &trans          &trans                                  &trans
-            >;
-
-            label = "Media, etc";
-        };
-
-        TOP {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
-&trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop  &utop   &itop   &otop   &ptop   &trans
-&trans  &atop   &stop   &dtop   &ftop   &gtop           &htop  &jtop   &ktop   &ltop   &trans  &trans
-&trans  &ztop   &xtop   &ctop   &vtop   &btop           &ntop  &mtop   &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans         &trans          &trans
-            >;
-        };
-
-        FRNT {
-            bindings = <
-&gravefront      &onefront  &twofront  &threefront      &fourfront       &fivefront  &sixfront           &sevenfront    &eightfront    &ninefront    &zerofront       &minusfront
-&backslashfront  &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau                &el_psi  &el_upsilon    &el_iota       &el_omikron   &el_pi           &eqfront
-&trans           &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma              &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda    &semicolonfront  &quotefront
-&trans           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta               &el_nu   &el_mu         &commafront    &periodfront  &slashfront      &trans
-                 &trans     &trans     &trans           &trans           &trans      &trans              &trans                        &trans
-            >;
-        };
+      #binding-cells = <2>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
+      flavor = "tap-preferred";
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
+    rhtap: rhtap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "RHTAP";
+      bindings = <&kp>, <&kp>;
 
-        SnipeScroll {
-            if-layers = <4 5>;
-            then-layer = <7>;
-        };
+      #binding-cells = <2>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <13 25 14 26 37 38 39 15 27 16 40 28 17 29 41 5 4 3 2 1 0 24 49 52 51 12 36>;
+      hold-trigger-on-release;
     };
+
+    lhtap: lhtap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "LHTAP";
+      bindings = <&kp>, <&kp>;
+
+      #binding-cells = <2>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
+      flavor = "balanced";
+      hold-trigger-key-positions = <18 22 30 31 32 33 34 42 43 44 45 46 19 20 21 22 54 10 9 8 7 6 10 11 22 23 35 47>;
+      hold-trigger-on-release;
+    };
+
+    lefttd: lefttd {
+      compatible = "zmk,behavior-tap-dance";
+      label = "LEFTTD";
+      #binding-cells = <0>;
+      bindings =
+        <&kp LEFT_ARROW>,
+        <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
+    };
+
+		righttd: righttd {
+      compatible = "zmk,behavior-tap-dance";
+      label = "RIGHTTD";
+      #binding-cells = <0>;
+      bindings =
+				<&mt LC(LS(RIGHT_ARROW)) RIGHT_ARROW>,
+				<&kp LC(RIGHT_ARROW)>;
+      
+    };
+
+		uptd: uptd {
+      compatible = "zmk,behavior-tap-dance";
+      label = "UPTD";
+      #binding-cells = <0>;
+      bindings =
+				<&mt LC(LS(UP_ARROW)) UP_ARROW>,
+				<&kp LC(UP_ARROW)>;
+    };
+
+		downtd: downtd {
+      compatible = "zmk,behavior-tap-dance";
+      label = "DOWNTD";
+      #binding-cells = <0>;
+      bindings =
+				<&mt LC(LS(DOWN_ARROW)) DOWN_ARROW>,
+				<&kp LC(DOWN_ARROW)>;
+    };
+
+		pastetd: pastetd {
+			compatible = "zmk,behavior-tap-dance";
+			label = "Paste";
+			#binding-cells = <0>;
+			bindings =
+				<&kp LC(V)>,
+				<&kp LG(V)>;
+		};
+
+    bracketmm: bracketmm {
+      compatible = "zmk,behavior-mod-morph";
+      label = "[]";
+      bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_RSFT|MOD_LSFT)>;
+    };
+
+    parenmm: parenmm {
+      compatible = "zmk,behavior-mod-morph";
+      label = "()";
+      bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    bracemm: bracemm {
+      compatible = "zmk,behavior-mod-morph";
+      label = "{}";
+      bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    ltgtmm: ltgtmm {
+      compatible = "zmk,behavior-mod-morph";
+      label = "LTGTMM";
+      bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    stickyshift_tap: stickyshift_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "STICKYSHIFT_TAP";
+      bindings = <&mo>, <&sk>;
+
+      #binding-cells = <2>;
+      tapping-term-ms = <170>;
+      quick-tap-ms = <100>;
+      flavor = "tap-preferred";
+    };
+
+    shiftcaps: shiftcaps {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SHIFTCAPS";
+      bindings = <&caps_word>, <&kp CAPSLOCK>;
+
+      #binding-cells = <0>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+
+    /omit-if-no-ref/
+
+     my_temp_layer: my_temp_layer {
+      compatible = "zmk,input-processor-temp-layer";
+      #input-processor-cells = <2>;
+      require-prior-idle-ms = <500>;
+      excluded-positions = <32 33 34 38 39 40 45 46 47>;
+    };
+  };
+
+  keymap {
+    compatible = "zmk,keymap";
+
+    BASE {
+      bindings = <
+			&mt GRAVE ESCAPE             &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                 &mt F10 NUMBER_0      &lt 6 MINUS
+			&mt LA(LG(SPACE)) BACKSLASH  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                           &mt K_APP P           &mt LA(LC(LG(LEFT_SHIFT))) EQUAL
+			&mt LA(TAB) TAB              &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhtap LSHIFT F  &kp G                                         &kp H  &rhtap RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L               &rhtap LEFT_GUI SEMI  &kp APOS
+			&caps_tap 2 0                &lt 3 Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD           &lt 3 SLASH           &swapper
+      &lt 11 DEL         &lt 9 ENTER      &key_repeat      &lt 1 SPACE      &mt LC(BACKSPACE) BACKSPACE  &lt 8 SPACE             &lt 2 ENTER                            &stickyshift_tap 10 LEFT_SHIFT
+    >;
+    };
+
+    NUM {
+      bindings = <
+			&kp F12  &trans  &trans  &trans  &trans                       &trans     &ltgtmm              &trans  &trans  &trans      &trans           &kp F11
+			&trans   &trans  &trans  &trans  &mt LC(DEL) DELETE           &trans              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      &trans
+			&trans   &trans  &trans  &trans  &trans                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
+			&trans   &trans  &trans  &trans  &mt LC(BACKSPACE) BACKSPACE  &trans              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  &kp EQUAL
+      &trans  &trans  &trans  &none                        &trans     &trans               &kp N0          &kp KP_DOT
+    >;
+
+      label = "Numpad";
+    };
+
+    SYM {
+      bindings = <
+			&kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+			&trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
+			&trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &kp TAB
+			&trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
+      &trans           &trans         &trans        &trans               &trans       &trans              &none                            &trans
+    >;
+
+      label = "Non-NUM symbols";
+    };
+
+    MOU {
+      bindings = <
+			&trans  &trans  &trans    &trans    &trans    &trans  &trans          &trans    &trans    &trans    &trans  &trans
+			&trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans    &trans    &trans    &trans  &trans
+			&trans  &trans  &trans    &trans    &trans    &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+			&trans  &trans  &mo 5     &mo 4     &trans    &trans          &trans  &trans    &mo 4     &mo 5     &trans  &trans
+      &trans  &mkp MB3  &mkp MB2  &mkp MB1  &trans  &trans          &trans              &trans
+    >;
+
+      label = "Mouse buttons";
+    };
+
+    SLOW {
+      bindings = <
+			&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+      &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+    >;
+
+      label = "Slow input";
+    };
+
+    SCROLL {
+      bindings = <
+			&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
+      &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
+    >;
+
+      label = "Convert mouse to scroll";
+    };
+
+    SYS {
+      bindings = <
+			&trans  &trans       &trans      &trans      &trans      &trans        &trans                &trans      &trans      &trans      &trans       &trans
+			&trans  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   &trans
+			&trans  &bootloader  &trans      &trans      &trans      &trans                &bt BT_SEL 1  &trans      &trans      &trans      &bootloader  &trans
+			&trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
+      &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
+    >;
+
+      label = "Keyboard internals";
+    };
+
+    SLSC {
+      bindings = <
+			&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+			&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+      &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+    >;
+
+      label = "Slow scrolling";
+    };
+
+    NAV {
+      bindings = <
+			&kp F12  &trans       &trans             &trans        &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+			&kp LG(LS(PRINTSCREEN))   &kp PAGE_UP  &mt LC(HOME) HOME  &uptd  &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
+			&trans   &kp LC(A)    &lefttd            &downtd      &righttd        &trans                  &trans  &trans           &trans          &trans           &trans          &trans
+			&trans   &kp LC(Z)    &kp LC(X)          &kp LC(C)     &pastetd        &kp LS(INS)                  &trans  &trans           &trans          &trans           &trans          &trans
+      &trans       &trans             &trans        &trans           &trans         &none            &trans                           &trans
+    >;
+
+      label = "Movement keys";
+    };
+
+    SPR {
+      bindings = <
+			&kp F12  &kp K_LOCK  &trans  &trans  &trans  &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans            &kp C_BRI_UP     &trans  &kp F11
+			&trans   &trans      &trans  &trans  &trans  &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE        &kp C_VOLUME_UP  &trans  &trans
+			&trans   &trans      &trans  &trans  &trans  &trans          &trans  &kp C_PREVIOUS        &kp C_PLAY_PAUSE  &kp C_NEXT       &trans  &trans
+			&trans   &trans      &trans  &trans  &trans  &trans          &trans  &trans                &trans            &trans           &trans  &trans
+      &trans      &none   &trans  &trans  &trans  &trans          &trans                                  &trans
+    >;
+
+      label = "Media, etc";
+    };
+
+    TOP {
+      bindings = <
+			&trans  &trans  &trans  &trans  &trans  &trans  &trans         &trans  &trans  &trans  &trans  &trans
+			&trans  &qtop   &wtop   &etop   &rtop   &ttop           &ytop  &utop   &itop   &otop   &ptop   &trans
+			&trans  &atop   &stop   &dtop   &ftop   &gtop           &htop  &jtop   &ktop   &ltop   &trans  &trans
+			&trans  &ztop   &xtop   &ctop   &vtop   &btop           &ntop  &mtop   &trans  &trans  &trans  &trans
+      &trans  &trans  &trans  &trans  &trans  &trans         &trans          &trans
+    >;
+    };
+
+    FRNT {
+      bindings = <
+			&gravefront      &onefront  &twofront  &threefront      &fourfront       &fivefront  &sixfront           &sevenfront    &eightfront    &ninefront    &zerofront       &minusfront
+			&backslashfront  &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau                &el_psi  &el_upsilon    &el_iota       &el_omikron   &el_pi           &eqfront
+			&trans           &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma              &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda    &semicolonfront  &quotefront
+			&trans           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta               &el_nu   &el_mu         &commafront    &periodfront  &slashfront      &trans
+      &trans     &trans     &trans           &trans           &trans      &trans              &trans                        &trans
+    >;
+    };
+  };
+
+  conditional_layers {
+    compatible = "zmk,conditional-layers";
+
+    SnipeScroll {
+      if-layers = <4 5>;
+      then-layer = <7>;
+    };
+  };
 };
