@@ -77,7 +77,7 @@
       compatible = "zmk,behavior-tri-state";
       #binding-cells = <0>;
       timeout-ms = <750>; // Fire behavior x ms after release, *or* when a non-ignored key is pressed
-      //			ignored-key-positions = <>;
+      ignored-key-positions = <24 27 31 57>;
 
       bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     };
