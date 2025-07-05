@@ -13,7 +13,9 @@
 
 // Can't move these into tree? Get moved by Keymap-Editor, annoyingly.
 #include "zmk-helpers/helper.h" // Source after behaviors.dtsi
-#include "zmk-helpers/unicode-chars/greek.dtsi"
+#include "zmk-helpers/unicode-chars/greek.dtsi" // Named Greek language characters for Front layer
+#include "unicode.dtsi" // Single unicode chars for Top layer
+
 
 
 // Set default row/column to actual key grid transform
@@ -65,9 +67,7 @@
 
 / {
 
-	#include "unicode.dtsi"
-
-  combos { compatible = "zmk,combos"; };
+	combos { compatible = "zmk,combos"; };
 
   behaviors {
 

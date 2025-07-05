@@ -1,7 +1,3 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <zmk-helpers/helper.h> // Source after behaviors.dtsi
-
 // Define Top layer keys per Space Cadet keyboard; basically for kicks
 // Top row
 ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
