@@ -16,8 +16,8 @@
 // Set default row/column to actual key grid transform
 
 / {
-	#include "zmk-helpers/helper.h"; // Source after behaviors.dtsi
-	#include "zmk-helpers/unicode-chars/greek.dtsi";
+	#include "zmk-helpers/helper.h" // Source after behaviors.dtsi
+	#include "zmk-helpers/unicode-chars/greek.dtsi"
   chosen { zmk,matrix_transform = &default_transform; };
 };
 
