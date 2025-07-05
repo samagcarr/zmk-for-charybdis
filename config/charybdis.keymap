@@ -6,16 +6,18 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/mouse_move.dtsi>
 
-// Can't move these into tree? Get moved by Keymap-Editor, annoyingly.
 
-#include "zmk-helpers/helper.h" // Source after behaviors.dtsi
-#include "zmk-helpers/unicode-chars/greek.dtsi" // Named Greek language characters for Front layer
-#include "unicode.dtsi" // Single unicode chars for Top layer
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
+
+// Can't move these into tree? Get moved by Keymap-Editor, annoyingly.
+
+#include "zmk-helpers/helper.h" // Source after behaviors.dtsi
+#include "zmk-helpers/unicode-chars/greek.dtsi" // Named Greek language characters for Front layer
+#include "unicode.dtsi" // Single unicode chars for Top layer
 
 // Set default row/column to actual key grid transform
 
