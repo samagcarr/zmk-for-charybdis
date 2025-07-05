@@ -214,7 +214,7 @@
     };
 
 		tab_tap: tab_tap {
-			compatible = "zmk,behaviour-hold-tap";
+			compatible = "zmk,behavior-hold-tap";
 			label = "TAB_SWAP";
 			bindings = <&swapper>, <&kp>;
 			#binding-cells = <2>;
