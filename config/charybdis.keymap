@@ -63,7 +63,7 @@
 };
 
 / {
-	#include "unicode.dtsi";
+	#include "unicode.dtsi"
 
   combos { compatible = "zmk,combos"; };
 
