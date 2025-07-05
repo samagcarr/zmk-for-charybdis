@@ -76,7 +76,7 @@
     swapper: swapper {
       compatible = "zmk,behavior-tri-state";
       #binding-cells = <0>;
-      timeout-ms = <200>; // Fire behavior x ms after release, *or* when a non-ignored key is pressed
+      timeout-ms = <750>; // Fire behavior x ms after release, *or* when a non-ignored key is pressed
       //			ignored-key-positions = <>;
 
       bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
