@@ -259,7 +259,7 @@
 &kp F12  &trans     &trans  &trans   &trans                       &trans     &ltgtmm              &trans  &trans  &trans      &trans           &kp F11
 &trans   &trans     &trans  &trans   &mt LC(DEL) DELETE           &trans              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      &trans
 &trans   &trans     &trans  &trans   &trans                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
-&trans   &trans     &trans  &trans   &mt LC(BACKSPACE) BACKSPACE  &trans              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  &kp EQUAL
+&trans   &trans     &trans  &trans   &mt LC(BACKSPACE) BACKSPACE  &trans              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  &trans
          &kp ENTER  &trans  &kp TAB  &kp SPACE                    &trans     &trans               &kp N0          &kp KP_DOT
       >;
 
