@@ -73,6 +73,8 @@
   combos { compatible = "zmk,combos"; };
 
   behaviors {
+		/* Fancy alt-tab on single key. Might remove timeout to get used to interrup
+			 ting with a key */
     swapper: swapper {
       compatible = "zmk,behavior-tri-state";
       #binding-cells = <0>;
@@ -82,9 +84,9 @@
       bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
     };
 
+		/* Mouse buttons on hold for forward/back */
     mouse_tap: mouse_tap {
       compatible = "zmk,behavior-hold-tap";
-      label = "MOUSE_TAP";
       bindings = <&mkp>, <&kp>;
 
       #binding-cells = <2>;
@@ -93,9 +95,9 @@
       quick-tap-ms = <100>;
     };
 
+		/* Adds layer on hold to existing caps word/caps lock behaviour */
     caps_tap: caps_tap {
       compatible = "zmk,behavior-hold-tap";
-      label = "CAPS_TAP";
       bindings = <&mo>, <&shiftcaps>;
 
       #binding-cells = <2>;
@@ -104,9 +106,9 @@
       flavor = "tap-preferred";
     };
 
+		/* Home Row Mod behaviours */
     rhtap: rhtap {
       compatible = "zmk,behavior-hold-tap";
-      label = "RHTAP";
       bindings = <&kp>, <&kp>;
 
       #binding-cells = <2>;
@@ -120,7 +122,6 @@
 
 		rhshift: rhshift {
       compatible = "zmk,behavior-hold-tap";
-      label = "RHSHIFT";
       bindings = <&kp>, <&kp>;
 
       #binding-cells = <2>;
@@ -134,7 +135,6 @@
 
     lhtap: lhtap {
       compatible = "zmk,behavior-hold-tap";
-      label = "LHTAP";
       bindings = <&kp>, <&kp>;
 
       #binding-cells = <2>;
@@ -148,7 +148,6 @@
 
 		lhshift: lhshift {
       compatible = "zmk,behavior-hold-tap";
-      label = "LHSHIFT";
       bindings = <&kp>, <&kp>;
 
       #binding-cells = <2>;
@@ -160,44 +159,40 @@
       hold-trigger-on-release;
     };
 
+		/* Arrow keys - still a work in progress */
     lefttd: lefttd {
       compatible = "zmk,behavior-tap-dance";
-      label = "LEFTTD";
       #binding-cells = <0>;
       bindings = <&kp LEFT_ARROW>, <&mt LC(LS(LEFT_ARROW)) LC(LEFT_ARROW)>;
     };
 
     righttd: righttd {
       compatible = "zmk,behavior-tap-dance";
-      label = "RIGHTTD";
       #binding-cells = <0>;
       bindings = <&mt LC(LS(RIGHT_ARROW)) RIGHT_ARROW>, <&kp LC(RIGHT_ARROW)>;
     };
 
     uptd: uptd {
       compatible = "zmk,behavior-tap-dance";
-      label = "UPTD";
       #binding-cells = <0>;
       bindings = <&mt LC(LS(UP_ARROW)) UP_ARROW>, <&kp LC(UP_ARROW)>;
     };
 
     downtd: downtd {
       compatible = "zmk,behavior-tap-dance";
-      label = "DOWNTD";
       #binding-cells = <0>;
       bindings = <&mt LC(LS(DOWN_ARROW)) DOWN_ARROW>, <&kp LC(DOWN_ARROW)>;
     };
 
+		/* For nav layer; paste on single tap, windows paste on 2 taps */
     pastetd: pastetd {
       compatible = "zmk,behavior-tap-dance";
-      label = "Paste";
       #binding-cells = <0>;
       bindings = <&kp LC(V)>, <&kp LG(V)>;
     };
 
     bracketmm: bracketmm {
       compatible = "zmk,behavior-mod-morph";
-      label = "[]";
       bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
 
       #binding-cells = <0>;
@@ -206,7 +201,6 @@
 
     parenmm: parenmm {
       compatible = "zmk,behavior-mod-morph";
-      label = "()";
       bindings = <&kp LEFT_PARENTHESIS>, <&kp RIGHT_PARENTHESIS>;
 
       #binding-cells = <0>;
@@ -215,7 +209,6 @@
 
     bracemm: bracemm {
       compatible = "zmk,behavior-mod-morph";
-      label = "{}";
       bindings = <&kp LEFT_BRACE>, <&kp RIGHT_BRACE>;
 
       #binding-cells = <0>;
@@ -224,16 +217,15 @@
 
     ltgtmm: ltgtmm {
       compatible = "zmk,behavior-mod-morph";
-      label = "LTGTMM";
       bindings = <&kp LESS_THAN>, <&kp GREATER_THAN>;
 
       #binding-cells = <0>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
+		/* Sticky shift + Layer on hold */
     stickyshift_tap: stickyshift_tap {
       compatible = "zmk,behavior-hold-tap";
-      label = "STICKYSHIFT_TAP";
       bindings = <&mo>, <&sk>;
 
       #binding-cells = <2>;
@@ -241,19 +233,21 @@
       quick-tap-ms = <100>;
       flavor = "tap-preferred";
     };
-
+		
+		/* Existing caps word behaviour on tap + Real caps lock on Shift-tap. Can be
+			 combined into a further mod-tap for layers.  */
     shiftcaps: shiftcaps {
       compatible = "zmk,behavior-mod-morph";
-      label = "SHIFTCAPS";
       bindings = <&caps_word>, <&kp CAPSLOCK>;
 
       #binding-cells = <0>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-
+		
+		/* Runs swapper on hold of tab key - consider moving this to alt-tab instead
+			 ? */
     tabtap: tabtap {
       compatible = "zmk,behavior-hold-tap";
-      label = "TABTAP";
       bindings = <&swapper>, <&kp>;
 
       #binding-cells = <2>;
@@ -293,7 +287,7 @@
          &kp ENTER  &trans  &kp TAB  &kp SPACE                    &trans     &trans               &kp N0          &kp KP_DOT
       >;
 
-      label = "Numpad";
+      display-name = "Numpad";
     };
 
     SYM {
@@ -305,7 +299,7 @@
          &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &trans              &trans                           &sk LEFT_SHIFT
       >;
 
-      label = "Non-NUM symbols";
+      display-name = "Non-NUM symbols";
     };
 
     MOU {
@@ -317,7 +311,7 @@
         &trans  &mkp MB3  &mkp MB2  &mkp MB1  &trans  &trans          &trans              &trans
       >;
 
-      label = "Mouse buttons";
+      display-name = "Mouse buttons";
     };
 
     SLOW {
@@ -329,7 +323,7 @@
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
       >;
 
-      label = "Slow input";
+      display-name = "Slow input";
     };
 
     SCROLL {
@@ -341,7 +335,7 @@
         &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
       >;
 
-      label = "Convert mouse to scroll";
+      display-name = "Convert mouse to scroll";
     };
 
     SYS {
@@ -353,7 +347,7 @@
         &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
       >;
 
-      label = "Keyboard internals";
+      display-name = "Keyboard internals";
     };
 
     SLSC {
@@ -365,7 +359,7 @@
         &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
       >;
 
-      label = "Slow scrolling";
+      display-name = "Slow scrolling";
     };
 
     NAV {
@@ -377,7 +371,7 @@
                          &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
       >;
 
-      label = "Movement keys";
+      display-name = "Movement keys";
     };
 
     SPR {
@@ -389,7 +383,7 @@
          &kp ENTER   &trans  &kp TAB  &kp SPACE  &trans  &trans          &trans                                  &sk LEFT_SHIFT
       >;
 
-      label = "Media, etc";
+      display-name = "Media, etc";
     };
 
     TOP {
