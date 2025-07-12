@@ -365,7 +365,7 @@
     NAV {
       bindings = <
 &kp F12                  &trans       &trans             &trans     &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(PRINTSCREEN))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
+&kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(A)    &lefttd            &downtd    &righttd         &trans                  &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
                          &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
@@ -405,6 +405,19 @@
                  &kp ENTER  &trans     &kp TAB          &kp SPACE        &trans      &trans              &trans                        &sk LEFT_SHIFT
       >;
     };
+
+		WIN {
+      bindings = <
+&kp F12                  &trans       &trans             &trans     &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+&kp LG(LS(PRINTSCREEN))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           &trans  &trans           &trans          &trans           &trans          &trans
+&trans                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  &trans  &trans           &trans          &trans           &trans          &trans
+&trans                   &kp LC(Z)    &kp LG(LS(LEFT))          &kt LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
+                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
+      >;
+
+      display-name = "Window movement keys";
+    };
+
   };
 
   conditional_layers {
