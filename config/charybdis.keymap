@@ -296,7 +296,7 @@
 &trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &kp TAB
 &trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
-         &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &trans              &trans                           &sk LEFT_SHIFT
+         &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &trans              &trans                           &trans
       >;
 
       display-name = "Non-NUM symbols";
@@ -368,7 +368,7 @@
 &kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(A)    &lefttd            &downtd    &righttd         &trans                  &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
-                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
+                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &trans
       >;
 
       display-name = "Movement keys";
@@ -422,10 +422,16 @@
 
   conditional_layers {
     compatible = "zmk,conditional-layers";
-
+		/* Slow scrolling */
     SnipeScroll {
       if-layers = <4 5>;
       then-layer = <7>;
     };
+
+		/* Combine Sym and Nav layers for window movement */
+		WinMove {
+			if-layers = <2 8>;
+			then-layer = <12>;
+		};
   };
 };
