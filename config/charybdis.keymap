@@ -336,7 +336,7 @@
 &trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
 &trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &kp TAB
 &trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
-         &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &trans              &trans                           &trans
+         &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &tabtd              &trans                           &stickyshift_tap 2 LEFT_SHIFT
       >;
 
       display-name = "Non-NUM symbols";
@@ -408,7 +408,7 @@
 &kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(A)    &lefttd            &downtd    &righttd         &trans                  &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
-                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &trans
+                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &tabtd              &trans                           &stickyshift_tap 2 LEFT_SHIFT
       >;
 
       display-name = "Movement keys";
