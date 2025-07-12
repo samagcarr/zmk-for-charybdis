@@ -300,7 +300,7 @@
 &mt LA(LG(SPACE)) BACKSLASH  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                          &kp P                 &kp EQUAL
 &tabtap 0 TAB                &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhshift LSHIFT F  &kp G                                         &kp H  &rhshift RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L              &rhtap LEFT_GUI SEMI  &kp APOS
 &caps_tap 2 0                &lt 3 Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD          &lt 3 SLASH           &mt LC(DELETE) DELETE
-                             &lt 9 ENTER        &lt 10 ENTER     &lt 11 TAB       &lt 1 SPACE      &backspace_tap  &lt 8 LA(TAB)           &key_repeat                            &stickyshift_tap 2 LEFT_SHIFT
+                             &lt 9 ENTER        &lt 10 ENTER     &lt 11 TAB       &lt 1 SPACE      &backspace_tap 0 0  &lt 8 LA(TAB)           &key_repeat                            &stickyshift_tap 2 LEFT_SHIFT
       >;
     };
 
