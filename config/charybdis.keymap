@@ -70,7 +70,14 @@
 };
 
 / {
-  combos { compatible = "zmk,combos"; };
+  combos {
+		compatible = "zmk,combos";
+
+		winmove {
+      bindings = <&mo 12>;
+      key-positions = <55 53>;
+    };
+	};
 
   behaviors {
 		/* Fancy alt-tab on single key. Might remove timeout to get used to interrup
@@ -469,9 +476,9 @@
     };
 
 		/* Combine Sym and Nav layers for window movement */
-		WinMove {
-			if-layers = <2 8>;
-			then-layer = <12>;
-		};
+		/* WinMove { */
+		/* 	if-layers = <2 8>; */
+		/* 	then-layer = <12>; */
+		/* }; */
   };
 };
