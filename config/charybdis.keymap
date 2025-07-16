@@ -459,7 +459,7 @@
 &kp F12                  &trans       &trans             &trans     &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
 &kp LG(LS(PRINTSCREEN))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           &trans  &trans           &trans          &trans           &trans          &trans
 &trans                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  &trans  &trans           &trans          &trans           &trans          &trans
-&trans                   &kp LC(Z)    &kp LG(LS(LEFT))          &kt LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
+&trans                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
                          &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
       >;
 
