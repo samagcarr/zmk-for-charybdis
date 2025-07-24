@@ -294,8 +294,7 @@
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 		
-		/* Runs swapper on hold of tab key - consider moving this to alt-tab instead
-			 ? */
+		/* Runs swapper on hold of tab key */
     tabtap: tabtap {
       compatible = "zmk,behavior-hold-tap";
       bindings = <&swapper>, <&kp>;
@@ -308,7 +307,7 @@
 		tabtd: tabtd {
 			compatible = "zmk,behavior-tap-dance";
 			#binding-cells = <0>;
-			bindings = <&lt 8 LA(TAB)>, <&swapper>;
+			bindings = <&lt NAV LA(TAB)>, <&swapper>;
  		};
 
 		/* layertab: layertab { */
@@ -335,15 +334,15 @@
     BASE {
       bindings = <
       // 0-11
-      &mt GRAVE ESCAPE             &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                &mt F10 NUMBER_0      &lt 6 MINUS
+      &mt GRAVE ESCAPE             &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                &mt F10 NUMBER_0      &lt SYS MINUS
       // 12-23
       &mt LA(LG(SPACE)) BACKSLASH  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                          &kp P                 &kp EQUAL
       // 24-35
       &kp TAB                &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhshift LSHIFT F  &kp G                                         &kp H  &rhshift RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L              &rhtap LEFT_GUI SEMI  &kp APOS
       // 36-47
-      &caps_tap 2 0                &lt 3 Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD          &lt 3 SLASH           &mt LC(DELETE) DELETE
+      &caps_tap SYM 0                &lt MOU Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD          &lt MOU SLASH           &mt LC(DELETE) DELETE
       // 48-55; Physical left hand: 50, 51, 48, 52, 49; Right hand: 55, 54, 53
-                             &lt 9 ENTER        &lt 10 ENTER     &lt 11 TAB       &lt 1 SPACE      &backspace_tap 0 0  &tabtd           &key_repeat                            &stickyshift_tap 2 LEFT_SHIFT
+                             &lt SPR ENTER        &lt TOP ENTER     &lt FRNT TAB       &lt NUM SPACE      &backspace_tap 0 0  &tabtd           &key_repeat                            &stickyshift_tap SYM LEFT_SHIFT
       >;
     };
 
@@ -365,7 +364,7 @@ __   __     __  __   &mt LC(BACKSPACE) BACKSPACE  __              &parenmm    &k
 __   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                __  __           __          __           __          __
 __   &ltgtmm          &bracemm       &bracketmm    &parenmm             __                   __  __           __          __           __          &kp TAB
 __   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  __                   __  __           __          __           __          __
-         &kp ENTER        __         &kp TAB       &kp SPACE            __       &tabtd              __                           &stickyshift_tap 2 LEFT_SHIFT
+         &kp ENTER        __         &kp TAB       &kp SPACE            __       &tabtd              __                           &stickyshift_tap SYM LEFT_SHIFT
       >;
 
       display-name = "Non-NUM symbols";
@@ -376,7 +375,7 @@ __   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  __      
 __  __  __    __    __    __  __          __    __    __    __  __
 __  __  __    __    __    __          __  __    __    __    __  __
 __  __  __    __    __    __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
-__  __  &mo 5     &mo 4     __    __          __  __    &mo 4     &mo 5     __  __
+__  __  &mo SCROLL     &mo SLOW     __    __          __  __    &mo SLOW     &mo SCROLL     __  __
         __  &mkp MB3  &mkp MB2  &mkp MB1  __  __          __              __
       >;
 
@@ -437,7 +436,7 @@ __  __  __  __  __  __          __  __  __  __  __  __
 &kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           __  __           __          __           __          __
 __                   &kp LC(A)    &lefttd            &downtd    &righttd         __                  __  __           __          __           __          __
 __                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             __  __           __          __           __          __
-                         &kp ENTER    __             &kp TAB    &kp SPACE        __         &tabtd              __                           &stickyshift_tap 2 LEFT_SHIFT
+                         &kp ENTER    __             &kp TAB    &kp SPACE        __         &tabtd              __                           &stickyshift_tap SYM LEFT_SHIFT
       >;
 
       display-name = "Movement keys";
@@ -493,8 +492,8 @@ __                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp L
     compatible = "zmk,conditional-layers";
 		/* Slow scrolling */
     SnipeScroll {
-      if-layers = <4 5>;
-      then-layer = <7>;
+      if-layers = <SLOW SCROLL>;
+      then-layer = <SLSC>;
     };
 
 		/* Combine Sym and Nav layers for window movement */
