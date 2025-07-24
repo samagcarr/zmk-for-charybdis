@@ -19,6 +19,22 @@
 #include "zmk-helpers/unicode-chars/greek.dtsi" // Named Greek language characters for Front layer
 #include "unicode.dtsi" // Single unicode chars for Top layer
 
+// Utility
+#define __ &trans
+#define BASE 0
+#define NUM 1
+#define SYM 2
+#define MOU 3
+#define SLOW 4
+#define SCROLL 5
+#define SYS 6
+#define SLSC 7
+#define NAV 8
+#define SPR 9
+#define TOP 10
+#define FRNT 11
+#define WIN 12
+
 // Set default row/column to actual key grid transform
 
 / {
@@ -53,16 +69,16 @@
   input-processors =
     <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
     <&zip_xy_scaler 5 4>,
-    <&my_temp_layer 3 500>;
+    <&my_temp_layer MOU 500>;
 
   sniper {
-    layers = <4 7>;
+    layers = <SLOW SLSC>;
     input-processors = <&zip_xy_scaler 1 8>;
     process-next;
   };
 
   scroller {
-    layers = <5 7>;
+    layers = <SCROLL SLSC>;
     input-processors =
       <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
       <&zip_xy_to_scroll_mapper>;
@@ -74,7 +90,7 @@
 		compatible = "zmk,combos";
 
 		winmove {
-      bindings = <&mo 12>;
+      bindings = <&mo WIN>;
       key-positions = <55 53>;
     };
 	};
@@ -333,11 +349,11 @@
 
     NUM {
       bindings = <
-&kp F12  &trans     &trans  &trans   &trans                       &trans     &ltgtmm              &trans  &trans  &trans      &trans           &kp F11
-&trans   &trans     &trans  &trans   &mt LC(DEL) DELETE           &trans              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      &trans
-&trans   &trans     &trans  &trans   &trans                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
-&trans   &trans     &trans  &trans   &mt LC(BACKSPACE) BACKSPACE  &trans              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  &trans
-         &kp ENTER  &trans  &kp TAB  &kp SPACE                    &trans     &trans               &kp N0          &kp KP_DOT
+&kp F12  __     __  __   __                       __     &ltgtmm              __  __  __      __           &kp F11
+__   __     __  __   &mt LC(DEL) DELETE           __              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      __
+__   __     __  __   __                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
+__   __     __  __   &mt LC(BACKSPACE) BACKSPACE  __              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  __
+         &kp ENTER  __  &kp TAB  &kp SPACE                    __     __               &kp N0          &kp KP_DOT
       >;
 
       display-name = "Numpad";
@@ -346,10 +362,10 @@
     SYM {
       bindings = <
 &kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&trans   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                &trans  &trans           &trans          &trans           &trans          &trans
-&trans   &ltgtmm          &bracemm       &bracketmm    &parenmm             &trans                   &trans  &trans           &trans          &trans           &trans          &kp TAB
-&trans   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  &trans                   &trans  &trans           &trans          &trans           &trans          &trans
-         &kp ENTER        &trans         &kp TAB       &kp SPACE            &trans       &tabtd              &trans                           &stickyshift_tap 2 LEFT_SHIFT
+__   &kp CARET        &kp AMPERSAND  &kp ASTERISK  &kp MINUS            &kp UNDER                __  __           __          __           __          __
+__   &ltgtmm          &bracemm       &bracketmm    &parenmm             __                   __  __           __          __           __          &kp TAB
+__   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  __                   __  __           __          __           __          __
+         &kp ENTER        __         &kp TAB       &kp SPACE            __       &tabtd              __                           &stickyshift_tap 2 LEFT_SHIFT
       >;
 
       display-name = "Non-NUM symbols";
@@ -357,11 +373,11 @@
 
     MOU {
       bindings = <
-&trans  &trans  &trans    &trans    &trans    &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans    &trans    &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans    &trans    &trans    &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &mo 5     &mo 4     &trans    &trans          &trans  &trans    &mo 4     &mo 5     &trans  &trans
-        &trans  &mkp MB3  &mkp MB2  &mkp MB1  &trans  &trans          &trans              &trans
+__  __  __    __    __    __  __          __    __    __    __  __
+__  __  __    __    __    __          __  __    __    __    __  __
+__  __  __    __    __    __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
+__  __  &mo 5     &mo 4     __    __          __  __    &mo 4     &mo 5     __  __
+        __  &mkp MB3  &mkp MB2  &mkp MB1  __  __          __              __
       >;
 
       display-name = "Mouse buttons";
@@ -369,11 +385,11 @@
 
     SLOW {
       bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+__  __  __  __  __  __  __          __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+        __  __  __  __  __  __          __          __
       >;
 
       display-name = "Slow input";
@@ -381,11 +397,11 @@
 
     SCROLL {
       bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans    &trans    &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans              &trans
+__  __  __  __  __  __  __          __    __    __    __  __
+__  __  __  __  __  __          __  __    __    __    __  __
+__  __  __  __  __  __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
+__  __  __  __  __  __          __  __    __    __    __  __
+        __  __  __  __  __  __          __              __
       >;
 
       display-name = "Convert mouse to scroll";
@@ -393,11 +409,11 @@
 
     SYS {
       bindings = <
-&trans  &trans       &trans      &trans      &trans      &trans        &trans                &trans      &trans      &trans      &trans       &trans
-&trans  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   &trans
-&trans  &bootloader  &trans      &trans      &trans      &trans                &bt BT_SEL 1  &trans      &trans      &trans      &bootloader  &trans
-&trans  &trans       &trans      &trans      &trans      &trans                &bt BT_SEL 3  &trans      &trans      &trans      &trans       &trans
-        &trans       &trans      &trans      &trans      &trans        &trans                &trans                  &trans
+__  __       __      __      __      __        __                __      __      __      __       __
+__  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   __
+__  &bootloader  __      __      __      __                &bt BT_SEL 1  __      __      __      &bootloader  __
+__  __       __      __      __      __                &bt BT_SEL 3  __      __      __      __       __
+        __       __      __      __      __        __                __                  __
       >;
 
       display-name = "Keyboard internals";
@@ -405,11 +421,11 @@
 
     SLSC {
       bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-        &trans  &trans  &trans  &trans  &trans  &trans          &trans          &trans
+__  __  __  __  __  __  __          __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+__  __  __  __  __  __          __  __  __  __  __  __
+        __  __  __  __  __  __          __          __
       >;
 
       display-name = "Slow scrolling";
@@ -417,11 +433,11 @@
 
     NAV {
       bindings = <
-&kp F12                  &trans       &trans             &trans     &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           &trans  &trans           &trans          &trans           &trans          &trans
-&trans                   &kp LC(A)    &lefttd            &downtd    &righttd         &trans                  &trans  &trans           &trans          &trans           &trans          &trans
-&trans                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
-                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &tabtd              &trans                           &stickyshift_tap 2 LEFT_SHIFT
+&kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+&kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           __  __           __          __           __          __
+__                   &kp LC(A)    &lefttd            &downtd    &righttd         __                  __  __           __          __           __          __
+__                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             __  __           __          __           __          __
+                         &kp ENTER    __             &kp TAB    &kp SPACE        __         &tabtd              __                           &stickyshift_tap 2 LEFT_SHIFT
       >;
 
       display-name = "Movement keys";
@@ -429,11 +445,11 @@
 
     SPR {
       bindings = <
-&kp F12  &kp K_LOCK  &trans  &trans   &trans     &trans  &trans          &kp C_BRIGHTNESS_DEC  &trans            &kp C_BRI_UP     &trans  &kp F11
-&trans   &trans      &trans  &trans   &trans     &trans          &trans  &kp C_VOLUME_DOWN     &kp C_MUTE        &kp C_VOLUME_UP  &trans  &trans
-&trans   &trans      &trans  &trans   &trans     &trans          &trans  &kp C_PREVIOUS        &kp C_PLAY_PAUSE  &kp C_NEXT       &trans  &trans
-&trans   &trans      &trans  &trans   &trans     &trans          &trans  &trans                &trans            &trans           &trans  &trans
-         &kp ENTER   &trans  &kp TAB  &kp SPACE  &trans  &trans          &trans                                  &sk LEFT_SHIFT
+&kp F12  &kp K_LOCK  __  __   __     __  __          &kp C_BRIGHTNESS_DEC  __            &kp C_BRI_UP     __  &kp F11
+__   __      __  __   __     __          __  &kp C_VOLUME_DOWN     &kp C_MUTE        &kp C_VOLUME_UP  __  __
+__   __      __  __   __     __          __  &kp C_PREVIOUS        &kp C_PLAY_PAUSE  &kp C_NEXT       __  __
+__   __      __  __   __     __          __  __                __            __           __  __
+         &kp ENTER   __  &kp TAB  &kp SPACE  __  __          __                                  &sk LEFT_SHIFT
       >;
 
       display-name = "Media, etc";
@@ -441,11 +457,11 @@
 
     TOP {
       bindings = <
-&trans  &trans     &trans  &trans   &trans     &trans  &trans         &trans  &trans  &trans      &trans  &trans
-&trans  &qtop      &wtop   &etop    &rtop      &ttop           &ytop  &utop   &itop   &otop       &ptop   &trans
-&trans  &atop      &stop   &dtop    &ftop      &gtop           &htop  &jtop   &ktop   &ltop       &trans  &trans
-&trans  &ztop      &xtop   &ctop    &vtop      &btop           &ntop  &mtop   &trans  &trans      &trans  &trans
-        &kp ENTER  &trans  &kp TAB  &kp SPACE  &trans  &trans         &trans          &sk LSHIFT
+__  __     __  __   __     __  __         __  __  __      __  __
+__  &qtop      &wtop   &etop    &rtop      &ttop           &ytop  &utop   &itop   &otop       &ptop   __
+__  &atop      &stop   &dtop    &ftop      &gtop           &htop  &jtop   &ktop   &ltop       __  __
+__  &ztop      &xtop   &ctop    &vtop      &btop           &ntop  &mtop   __  __      __  __
+        &kp ENTER  __  &kp TAB  &kp SPACE  __  __         __          &sk LSHIFT
       >;
     };
 
@@ -453,19 +469,19 @@
       bindings = <
 &gravefront      &onefront  &twofront  &threefront      &fourfront       &fivefront  &sixfront           &sevenfront    &eightfront    &ninefront      &zerofront       &minusfront
 &backslashfront  &el_theta  &el_omega  &el_epsilon_sym  &el_rho_sym      &el_tau                &el_psi  &el_upsilon    &el_iota       &el_omikron     &el_pi           &eqfront
-&trans           &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma              &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda      &semicolonfront  &quotefront
-&trans           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta               &el_nu   &el_mu         &commafront    &periodfront    &slashfront      &trans
-                 &kp ENTER  &trans     &kp TAB          &kp SPACE        &trans      &trans              &trans                        &sk LEFT_SHIFT
+__           &el_alpha  &el_sigma  &el_delta        &el_phi_sym      &el_gamma              &el_eta  &el_theta_sym  &el_kappa_sym  &el_lambda      &semicolonfront  &quotefront
+__           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta               &el_nu   &el_mu         &commafront    &periodfront    &slashfront      __
+                 &kp ENTER  __     &kp TAB          &kp SPACE        __      __              __                        &sk LEFT_SHIFT
       >;
     };
 
 		WIN {
       bindings = <
-&kp F12                  &trans       &trans             &trans     &trans           &trans         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(PRINTSCREEN))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           &trans  &trans           &trans          &trans           &trans          &trans
-&trans                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  &trans  &trans           &trans          &trans           &trans          &trans
-&trans                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             &trans  &trans           &trans          &trans           &trans          &trans
-                         &kp ENTER    &trans             &kp TAB    &kp SPACE        &trans         &trans           &trans                           &sk LEFT_SHIFT
+&kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+&kp LG(LS(PRINTSCREEN))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           __  __           __          __           __          __
+__                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  __  __           __          __           __          __
+__                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             __  __           __          __           __          __
+                         &kp ENTER    __             &kp TAB    &kp SPACE        __         __           __                           &sk LEFT_SHIFT
       >;
 
       display-name = "Window movement keys";
