@@ -477,7 +477,7 @@ __           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta   
 		WIN {
       bindings = <
 &kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(PRINTSCREEN))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           __  __           __          __           __          __
+&kp LG(LS(S))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           __  __           __          __           __          __
 __                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  __  __           __          __           __          __
 __                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             __  __           __          __           __          __
                          &kp ENTER    __             &kp TAB    &kp SPACE        __         __           __                           &sk LEFT_SHIFT
@@ -493,7 +493,8 @@ __                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp L
 		/* Slow scrolling */
     SnipeScroll {
       if-layers = <SLOW SCROLL>;
-      then-layer = <SLSC>;
+      then-layer = <SLSC
+>;
     };
 
 		/* Combine Sym and Nav layers for window movement */
