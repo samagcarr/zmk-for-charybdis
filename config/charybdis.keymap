@@ -95,6 +95,17 @@
     };
 	};
 
+  macros {
+    click_paste: click_paste {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings
+        = <&macro_tap &mkp MB1>
+        , <&macro_press &kp LC(V)>
+        ;
+    };
+  };
+
   behaviors {
 		/* Fancy alt-tab on single key. Might remove timeout to get used to interrup
 			 ting with a key */
@@ -374,7 +385,7 @@ __   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  __      
       bindings = <
 __  __  __    __    __    __  __          __    __    __    __  __
 __  __  __    __    __    __          __  __    __    __    __  __
-__  __  __    __    __    __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
+__  __  __    __    __    __         &click_paste  &mkp MB1  &mkp MB2  &mkp MB3  __  __
 __  __  &mo SCROLL     &mo SLOW     __    __          __  __    &mo SLOW     &mo SCROLL     __  __
         __  &mkp MB3  &mkp MB2  &mkp MB1  __  __          __              __
       >;
@@ -477,7 +488,7 @@ __           &el_zeta   &el_xi     &el_chi          &el_final_sigma  &el_beta   
 		WIN {
       bindings = <
 &kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(S))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           __  __           __          __           __          __
+&kp LG(LS(S))  &kp LG(TAB)  &kp LG(LC(LEFT))  &kp LG(UP)      &kp LG(LC(RIGHT))  &kp LG(LC(D))           __  __           __          __        __         __
 __                   &kp LC(A)    &kp LG(LEFT)            &kp LG(DOWN)    &kp LG(RIGHT)         &kp LG(LC(T))                  __  __           __          __           __          __
 __                   &kp LC(Z)    &kp LG(LS(LEFT))          &kp LG(COMMA)  &kp LG(LS(RIGHT))         &kp LS(INS)             __  __           __          __           __          __
                          &kp ENTER    __             &kp TAB    &kp SPACE        __         __           __                           &sk LEFT_SHIFT
