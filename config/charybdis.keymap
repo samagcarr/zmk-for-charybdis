@@ -101,7 +101,7 @@
       #binding-cells = <0>;
       bindings
         = <&macro_tap &mkp MB1>
-        , <&macro_press &kp LC(V)>
+        , <&kp LC(V)>
         ;
     };
   };
@@ -385,7 +385,7 @@ __   &kp GRAVE        &kp TILDE      &kp PIPE      &mt BACKSLASH SLASH  __      
       bindings = <
 __  __  __    __    __    __  __          __    __    __    __  __
 __  __  __    __    __    __          __  __    __    __    __  __
-__  __  __    __    __    __         &click_paste  &mkp MB1  &mkp MB2  &mkp MB3  __  __
+__  __  __    __    __    __         &click_paste  &Mkp MB1  &mkp MB2  &mkp MB3  __  __
 __  __  &mo SCROLL     &mo SLOW     __    __          __  __    &mo SLOW     &mo SCROLL     __  __
         __  &mkp MB3  &mkp MB2  &mkp MB1  __  __          __              __
       >;
