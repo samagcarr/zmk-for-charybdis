@@ -345,30 +345,32 @@
     BASE {
       bindings = <
       // 0-11
-      &mt GRAVE ESCAPE             &mt F1 NUMBER_1    &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5              &mt F6 NUMBER_6         &mt F7 NUMBER_7  &mt F8 NUMBER_8       &mt F9 NUMBER_9                &mt F10 NUMBER_0      &lt SYS MINUS
+      &mt GRAVE ESCAPE  &mt F1 NUMBER_1  &mt F2 NUMBER_2  &mt F3 NUMBER_3  &mt F4 NUMBER_4  &mt F5 NUMBER_5  &mt F6 NUMBER_6  &mt F7 NUMBER_7  &mt F8 NUMBER_8  &mt F9 NUMBER_9  &mt F10 NUMBER_0  &lt SYS MINUS
       // 12-23
-      &mt LA(LG(SPACE)) BACKSLASH  &kp Q              &kp W            &kp E            &kp R            &kp T                                         &kp Y  &kp U            &kp I                 &kp O                          &kp P                 &kp EQUAL
+      &mt LA(LG(SPACE)) BACKSLASH  &kp Q  &kp W  &kp E  &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P  &kp EQUAL
       // 24-35
-      &kp TAB                &lhtap LEFT_GUI A  &lhtap LALT S    &lhtap LCTRL D   &lhshift LSHIFT F  &kp G                                         &kp H  &rhshift RSHIFT J  &rhtap RCTRL K        &rhtap LEFT_ALT L              &rhtap LEFT_GUI SEMI  &kp APOS
+      &kp TAB  &lhtap LEFT_GUI A  &lhtap LALT S  &lhtap LCTRL D  &lhshift LSHIFT F  &kp G  &kp H  &rhshift RSHIFT J  &rhtap RCTRL K  &rhtap LEFT_ALT L  &rhtap LEFT_GUI SEMI  &kp APOS
       // 36-47
-      &caps_tap SYM 0                &lt MOU Z            &kp X            &kp C            &kp V            &kp B                                         &kp N  &kp M            &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD          &lt MOU SLASH           &mt LC(DELETE) DELETE
+      &caps_tap SYM 0  &lt MOU Z  &kp X  &kp C  &kp V  &kp B  &kp N  &kp M  &mouse_tap MB4 COMMA  &mouse_tap MB5 PERIOD  &lt MOU SLASH  &mt LC(DELETE) DELETE
       // 48-55; Physical left hand: 50, 51, 48, 52, 49; Right hand: 55, 54, 53
-                             &lt SPR ENTER        &lt TOP ENTER     &lt FRNT TAB       &lt NUM SPACE      &backspace_tap 0 0  &tabtd           &key_repeat                            &stickyshift_tap SYM LEFT_SHIFT
+      &lt SPR ENTER  &lt TOP ENTER  &lt FRNT TAB  &lt NUM SPACE  &backspace_tap 0 0  &tabtd  &key_repeat  &stickyshift_tap SYM LEFT_SHIFT
       >;
     };
 
     NUM {
       bindings = <
-&kp F12  __     __  __   __                       __     &ltgtmm              __  __  __      __           &kp F11
-__   __     __  __   &mt LC(DEL) DELETE           __              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      __
-__   __     __  __   __                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
-__   __     __  __   &mt LC(BACKSPACE) BACKSPACE  __              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  __
-         &kp ENTER  __  &kp TAB  &kp SPACE                    __     __               &kp N0          &kp KP_DOT
+      &kp F12  __  __  __   __  __  &ltgtmm              __  __  __      __           &kp F11
+      __   __     __  __   &mt LC(DEL) DELETE           __              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      __
+      __   __     __  __   __                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
+      __   __     __  __   &mt LC(BACKSPACE) BACKSPACE  __              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  __
+      &kp ENTER  __  &kp TAB  &kp SPACE                    __     __               &kp N0          &kp KP_DOT
       >;
 
       display-name = "Numpad";
     };
 
+    /* Note - haven't had much use for symbol layer; just use number keys. */
+    
     SYM {
       bindings = <
 &kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
@@ -395,11 +397,11 @@ __  __  &mo SCROLL     &mo SLOW     __    __          __  __    &mo SLOW     &mo
 
     SLOW {
       bindings = <
-__  __  __  __  __  __  __          __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-        __  __  __  __  __  __          __          __
+      __  __  __  __  __  __  __          __  __  __  __  __
+      __  __  __  __  __  __          __  __  __  __  __  __
+      __  __  __  __  __  __          __  __  __  __  __  __
+      __  __  __  __  __  __          __  __  __  __  __  __
+      __  __  __  __  __  __          __          __
       >;
 
       display-name = "Slow input";
@@ -407,11 +409,11 @@ __  __  __  __  __  __          __  __  __  __  __  __
 
     SCROLL {
       bindings = <
-__  __  __  __  __  __  __          __    __    __    __  __
-__  __  __  __  __  __          __  __    __    __    __  __
-__  __  __  __  __  __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
-__  __  __  __  __  __          __  __    __    __    __  __
-        __  __  __  __  __  __          __              __
+      __  __  __  __  __  __  __          __    __    __    __  __
+      __  __  __  __  __  __          __  __    __    __    __  __
+      __  __  __  __  __  __          __  &mkp MB1  &mkp MB2  &mkp MB3  __  __
+      __  __  __  __  __  __          __  __    __    __    __  __
+      __  __  __  __  __  __          __              __
       >;
 
       display-name = "Convert mouse to scroll";
@@ -419,11 +421,11 @@ __  __  __  __  __  __          __  __    __    __    __  __
 
     SYS {
       bindings = <
-__  __       __      __      __      __        __                __      __      __      __       __
-__  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   __
-__  &bootloader  __      __      __      __                &bt BT_SEL 1  __      __      __      &bootloader  __
-__  __       __      __      __      __                &bt BT_SEL 3  __      __      __      __       __
-        __       __      __      __      __        __                __                  __
+      __  __       __      __      __      __        __                __      __      __      __       __
+      __  &sys_reset   &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &out OUT_TOG          &bt BT_SEL 0  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &sys_reset   __
+      __  &bootloader  __      __      __      __                &bt BT_SEL 1  __      __      __      &bootloader  __
+      __  __       __      __      __      __                &bt BT_SEL 3  __      __      __      __       __
+      __  __  __  __  __  __  __  __
       >;
 
       display-name = "Keyboard internals";
@@ -431,11 +433,11 @@ __  __       __      __      __      __                &bt BT_SEL 3  __      __ 
 
     SLSC {
       bindings = <
-__  __  __  __  __  __  __          __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-__  __  __  __  __  __          __  __  __  __  __  __
-        __  __  __  __  __  __          __          __
+      __  __  __  __  __  __  __  __  __  __  __  __
+      __  __  __  __  __  __  __  __  __  __  __  __
+      __  __  __  __  __  __  __  __  __  __  __  __
+      __  __  __  __  __  __  __  __  __  __  __  __
+      __  __  __  __  __  __  __  __
       >;
 
       display-name = "Slow scrolling";
@@ -443,11 +445,11 @@ __  __  __  __  __  __          __  __  __  __  __  __
 
     NAV {
       bindings = <
-&kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
-&kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           __  __           __          __           __          __
-__                   &kp LC(A)    &lefttd            &downtd    &righttd         __                  __  __           __          __           __          __
-__                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             __  __           __          __           __          __
-                         &kp ENTER    __             &kp TAB    &kp SPACE        __         &tabtd              __                           &stickyshift_tap SYM LEFT_SHIFT
+      &kp F12                  __       __             __     __           __         &kp INS          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
+      &kp LG(LS(S))  &kp PAGE_UP  &mt LC(HOME) HOME  &uptd      &mt LC(END) END  &kp PAGE_DOWN           __  __           __          __           __          __
+      __                   &kp LC(A)    &lefttd            &downtd    &righttd         __                  __  __           __          __           __          __
+      __                   &kp LC(Z)    &kp LC(X)          &kp LC(C)  &pastetd         &kp LS(INS)             __  __           __          __           __          __
+      &kp ENTER  __  &kp TAB  &kp SPACE  __  &tabtd  __  &stickyshift_tap SYM LEFT_SHIFT
       >;
 
       display-name = "Movement keys";
