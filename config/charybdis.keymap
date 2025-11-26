@@ -1,11 +1,9 @@
 // dt-formatter: indent="  "
-
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
 #include <input/processors.dtsi>
 #include <dt-bindings/zmk/input_transform.h>
 #include <behaviors/mouse_move.dtsi>
-
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -14,7 +12,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // Can't move these into tree? Get moved by Keymap-Editor, annoyingly.
-
 #include "zmk-helpers/helper.h" // Source after behaviors.dtsi
 #include "zmk-helpers/unicode-chars/greek.dtsi" // Named Greek language characters for Front layer
 #include "unicode.dtsi" // Single unicode chars for Top layer
@@ -36,13 +33,11 @@
 #define WIN 12
 
 // Set default row/column to actual key grid transform
-
 / {
   chosen { zmk,matrix_transform = &default_transform; };
 };
 
 // Default mod-tap settings
-
 &mt {
   quick-tap-ms = <100>;
   global-quick-tap;
@@ -51,7 +46,6 @@
 };
 
 // Default layer-tap settings
-
 &lt {
   quick-tap-ms = <100>;
   global-quick-tap;
@@ -60,11 +54,9 @@
 };
 
 // Defaults for caps-word behaviour
-
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE MINUS>; };
 
 // zip scaler takes mult/divisor to create multiplier. 1.5x is too fast. 1 seems fine?
-
 &trackball_listener {
   input-processors =
     <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_XY_SWAP)>,
@@ -236,6 +228,7 @@
       bindings = <&kp LC(V)>, <&kp LG(V)>;
     };
 
+    /* Left bracket on normal press, right bracket on shift-press */
     bracketmm: bracketmm {
       compatible = "zmk,behavior-mod-morph";
       bindings = <&kp LEFT_BRACKET>, <&kp RIGHT_BRACKET>;
@@ -289,6 +282,7 @@
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
+    /* Backspace normally, delete on shift */
 		shiftdel: shiftdel {
       compatible = "zmk,behavior-mod-morph";
       bindings = <&kp BACKSPACE>, <&kp DELETE>;
@@ -297,6 +291,7 @@
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
 
+    /* C-Backspace normally, C-delete on shift */
 		shiftcdel: shiftcdel {
       compatible = "zmk,behavior-mod-morph";
       bindings = <&kp LC(BACKSPACE)>, <&kp LC(DELETE)>;
@@ -315,6 +310,7 @@
       flavor = "tap-preferred";
     };
 
+    /* Run swapper on double-tap of layer key, alt tab on single tap */
 		tabtd: tabtd {
 			compatible = "zmk,behavior-tap-dance";
 			#binding-cells = <0>;
@@ -329,8 +325,8 @@
 		/* 	flavor = "tap-preferred"; */
 		/* }; */
 
+    /* Zip-to-layer for mouse mode */
     /omit-if-no-ref/
-
     my_temp_layer: my_temp_layer {
       compatible = "zmk,input-processor-temp-layer";
       #input-processor-cells = <2>;
@@ -359,18 +355,17 @@
 
     NUM {
       bindings = <
-      &kp F12  __  __  __   __  __  &ltgtmm              __  __  __      __           &kp F11
-      __   __     __  __   &mt LC(DEL) DELETE           __              &bracemm    &kp N7  &kp N8  &kp N9      &kp KP_PLUS      __
-      __   __     __  __   __                       &kp SPACE           &bracketmm  &kp N4  &kp N5  &kp N6      &kp MINUS        &kp SLASH
-      __   __     __  __   &mt LC(BACKSPACE) BACKSPACE  __              &parenmm    &kp N1  &kp N2  &kp N3      &kp KP_MULTIPLY  __
-      &kp ENTER  __  &kp TAB  &kp SPACE                    __     __               &kp N0          &kp KP_DOT
+      &kp F12    __  __       __         __                           __  &ltgtmm     __      __      __      __               &kp F11
+      __         __  __       __         &mt LC(DEL) DELETE           __  &bracemm    &kp N7  &kp N8  &kp N9  &kp KP_PLUS      __
+      __         __  &kp TAB  &kp SPACE  &kp ENTER                    __  &bracketmm  &kp N4  &kp N5  &kp N6  &kp MINUS        &kp SLASH
+      __         __  __       __         &mt LC(BACKSPACE) BACKSPACE  __  &parenmm    &kp N1  &kp N2  &kp N3  &kp KP_MULTIPLY  __
+      __         __  __       __         __                           __  &kp N0      &kp KP_DOT
       >;
 
       display-name = "Numpad";
     };
 
     /* Note - haven't had much use for symbol layer; just use number keys. */
-    
     SYM {
       bindings = <
 &kp F12  &kp EXCLAMATION  &kp AT_SIGN    &kp HASH      &kp DOLLAR           &kp PERCENT  &kp INSERT          &kp PRINTSCREEN  &kp SCROLLLOCK  &kp PAUSE_BREAK  &kp KP_NUMLOCK  &kp F11
