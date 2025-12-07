@@ -1,3 +1,5 @@
+// swap to https://github.com/urob/zmk-unicode/commit/b356c2675a9c7ea11ae89db94c2b5bb48f0a3847 style of definitions
+
 // Define Top layer keys per Space Cadet keyboard; basically for kicks
 // Top row
 ZMK_UNICODE_SINGLE(qtop, N2, N2, N2, N7)
